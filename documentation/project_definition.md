@@ -10,7 +10,7 @@ Used algorithms are JPS (Jump Point Search) and Dijsktra. Existing Python data s
 * Output is an image of shortest distance on a map (as .png file), calculated shortest distance value and calculation time
 
 ## Time and space complexity
-Target time complexity is O(n + m log m) for Dijkstra[2], where n and m are number of nodes and edges. JPS is an improvement to A* search, which has worst-case time complexity O(b^d), where b is branching factor and d is depth [3]. Actual time complexity of JPS is expected to be better, because of heuristic that is used eliminates large number of nodes. In a way, algorith jumps from node to node in straight lines, without going with small steps like original A* algorithm. Overall, it is expected that JPS has better time complexity than Dijkstra in this case, altough magnitude of improvement is unclear.
+Target time complexity is O(n + m log m) for Dijkstra with priority queue[2], where n and m are number of nodes and edges. JPS is an improvement to A* search, which has worst-case time complexity O(b^d), where b is branching factor and d is depth [3]. Actual time complexity of JPS is expected to be better, because of heuristic that is used eliminates large number of nodes. In a way, algorith jumps from node to node in straight lines, without going with small steps like original A* algorithm. Overall, it is expected that JPS has better time complexity than Dijkstra in this case, altough magnitude of improvement is unclear.
 Target space complexities are O(n + m ) for both algorithms (all vertices and edges stored in memory)
 
 ## Sources
