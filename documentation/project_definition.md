@@ -24,5 +24,5 @@ Target space complexities are O(n + m ) for both algorithms (all vertices and ed
 ## Study program
 Tietojenkäsittelytieteen kandidaatti
 
-## Documnetation language
+## Documentation language
 English
