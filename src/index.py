@@ -1,8 +1,10 @@
-from PIL import Image
-
+from map_image import MapImage
 
 def main():
-    print("test2")
+    image = MapImage(256, 256)
+    image.import_map('data/Berlin_0_256.map')
+    image.resize(512, 512)
+    image.save()
 
 
 if __name__ == "__main__":
