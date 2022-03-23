@@ -30,6 +30,8 @@ jobs:
           python-version: 3.8
       - name: Install Poetry
         run: pip install poetry
+      - name: list
+        run: ls -alrt
       - name: Install dependencies
         run: poetry install
       - name: Run tests
