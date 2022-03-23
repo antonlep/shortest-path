@@ -30,8 +30,6 @@ jobs:
           python-version: 3.8
       - name: Install Poetry
         run: pip install poetry
-      - name: list
-        run: ls -alrt
       - name: Install dependencies
         run: poetry install
       - name: Run tests
@@ -42,4 +40,8 @@ jobs:
         run: bash <(curl -s https://codecov.io/bash)
       - name: Run lint
         run: poetry run invoke lint
+      - name: list
+        run: ls -alrt
+      - name: cat
+        run: cat coverage.xml
 
