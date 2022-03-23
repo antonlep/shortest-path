@@ -15,6 +15,10 @@ def test(ctx):
 def coverage(ctx):
     ctx.run("coverage run --branch -m pytest src; coverage xml")
 
+@task
+def coveragehtml(ctx):
+    ctx.run("coverage run --branch -m pytest src; coverage html")
+
 
 @task
 def lint(ctx):
