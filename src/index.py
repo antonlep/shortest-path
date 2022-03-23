@@ -2,7 +2,7 @@ from PIL import Image
 
 
 def main():
-    print("test")
+    print("test2")
 
 
 if __name__ == "__main__":
