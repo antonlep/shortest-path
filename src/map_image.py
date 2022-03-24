@@ -28,9 +28,12 @@ class MapImage:
                 data.append(row)
         self.data = data
 
+    def add_route(self, route):
+        for i in route:
+            self.im.putpixel((i[0], i[1]), (255, 0, 0))
+
     def resize(self, width, height):
         self.im = self.im.resize((width, height))
 
-    def save(self):
-        name = self.map.split()[0]
+    def save(self, name):
         self.im.save(name + '.png')
