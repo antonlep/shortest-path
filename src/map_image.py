@@ -32,8 +32,6 @@ class MapImage:
         for i in route:
             self.im.putpixel((i[0], i[1]), (255, 0, 0))
 
-    def resize(self, width, height):
-        self.im = self.im.resize((width, height))
-
-    def save(self, name):
-        self.im.save(name + '.png')
+    def save(self, size, name):
+        im = self.im.resize(size)
+        im.save(name + '.png')

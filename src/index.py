@@ -3,8 +3,9 @@ from dijkstra import Dijkstra
 
 def main():
     image = MapImage(256, 256)
+    image_size = (512, 512)
     image.import_map('data/Berlin_0_256.map')
-    image.save("data/original")
+    image.save(image_size, "data/original")
     data = image.data
     dijkstra = Dijkstra()
     graph = dijkstra.create_graph(data)
@@ -13,8 +14,7 @@ def main():
     route, shortest_distance = dijkstra.calculate_distance(graph, start, end)
     print("shortest distance: ", shortest_distance)
     image.add_route(route)
-    image.resize(512, 512)
-    image.save("data/route")
+    image.save(image_size, "data/route")
 
 if __name__ == "__main__":
     main()
