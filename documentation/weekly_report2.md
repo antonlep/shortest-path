@@ -1,13 +1,14 @@
-# Week 1
+# Week 2
 ## Things done this week
-* Some background research about different project topics
-* Quick look through of jump point search algorithm, trying to get basic idea how it works
-* Testing how to import .map file and export image file (outside of version control)
-* Project creation
-* Project definition document
+* Working program that calculates shortest path with Dijkstra with command line arguments
+** .map file import.
+** Shortest distance calculation with Dijksta algorithm. Calculates shortest distance, shortest route and visited nodes.
+** Result export as .png file.
+* Unit tests, docstrings and linting added.
+* Continous integration with GitHub Actions, connected to codecov.
 
 ## Problems
-* No big issues, don't think I understood JPS algorithm completely but hopefully it will become more clear in future
+* Not big issues at the moment. Calculated distance is slightly different than reference value, could be related to the way how the algorithms cut corners diagonally.
 
 ## Plans for next week
 * Create working program that calculates shortest path with Dijkstra with command line arguments 
