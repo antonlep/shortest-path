@@ -31,7 +31,7 @@ Berlin_0_256: map file name
 
 139: end location y coordinate
 
-Picture with shortest route and visited nodes are saves as .png file to src/data/
+Picture with shortest route and visited nodes is saved as .png file to src/data/
 
 ### Run tests
 
