@@ -1,6 +1,7 @@
 from PIL import Image
 import math
 
+
 class MapImage:
 
     def __init__(self, width, height):
@@ -35,11 +36,11 @@ class MapImage:
         n = len(self.data)
         m = len(self.data[0])
         graph = {}
-        moves_straight = [(-1,0), (0,-1), (0,1), (1,0)]
-        moves_diagonal = [(-1,-1), (-1,1), (1,-1), (1,1)]
+        moves_straight = [(-1, 0), (0, -1), (0, 1), (1, 0)]
+        moves_diagonal = [(-1, -1), (-1, 1), (1, -1), (1, 1)]
         for i in range(n):
             for j in range(m):
-                    graph[(i,j)] = []
+                graph[(i, j)] = []
         for i in range(n):
             for j in range(m):
                 pos = (i, j)

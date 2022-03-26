@@ -1,5 +1,6 @@
 from heapq import heappush, heappop
 
+
 class Dijkstra:
     def __init__(self):
         self.inf = 1e99
@@ -29,7 +30,7 @@ class Dijkstra:
                     previous[y[0]] = x
                     heappush(heap, (new, y[0]))
         if distance[end] == self.inf:
-            return [], -1, {}
+            return -1, [], []
         route = self.calculate_route(previous, start, end)
         visited = self.calculate_visited(ready)
         return distance[end], route, visited
@@ -48,12 +49,3 @@ class Dijkstra:
             if value == True:
                 visited.append(key)
         return visited
-
-
-
-
-
-
-
-
-            
