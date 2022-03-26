@@ -9,6 +9,8 @@ Shortest path solver in Python.
 
 [Weekly report 1](https://github.com/antonlep/shortest-path/blob/master/documentation/weekly_report1.md)
 
+[Weekly report 2](https://github.com/antonlep/shortest-path/blob/master/documentation/weekly_report2.md)
+
 ## Installation
 
 Requires Python (>=3.8) and Poetry (>=1.1.11)
