@@ -3,6 +3,12 @@ import math
 
 
 class MapImage:
+    """Class that has operations for importing map data, creating graph and exporting result as picture file.
+
+    Args:
+        width: Input map width
+        height: Input map height
+    """
 
     def __init__(self, width, height):
         self.width = width
@@ -12,6 +18,11 @@ class MapImage:
         self.data = []
 
     def import_map(self, map):
+        """Imports map file and converts it to image format and list.
+
+        Args:
+            map: Name of a map file.
+        """
         self.map = map
         data = []
         with open(map) as f:
@@ -31,6 +42,11 @@ class MapImage:
         self.data = data
 
     def create_graph(self):
+        """Converts image file to graph.
+
+        Returns:
+            Graph as dictionary which includes neighboring nodes and their cost {(x,y): [((x2,y2), 1)]} 
+        """
         straight_cost = 1
         diagonal_cost = math.sqrt(2)
         n = len(self.data)
@@ -58,9 +74,21 @@ class MapImage:
         return graph
 
     def add_route(self, route, color):
+        """Adds nodes in a route to image file.
+
+        Args:
+            route: List of nodes.
+            color: Color in RGB format.
+        """
         for i in route:
             self.im.putpixel((i[0], i[1]), color)
 
     def save(self, size, name):
+        """Saves image as png file.
+
+        Args:
+            size: Output image size.
+            name: Output file name.
+        """
         im = self.im.resize(size)
         im.save(name + '.png')
