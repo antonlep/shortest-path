@@ -1,20 +1,22 @@
 from map_image import MapImage
 from dijkstra import Dijkstra
+import sys
 
 def main():
+    map = sys.argv[1]
+    start = (int(sys.argv[2]), int(sys.argv[3]))
+    end = (int(sys.argv[4]), int(sys.argv[5]))
     image = MapImage(256, 256)
-    image_size = (512, 512)
-    image.import_map('data/Berlin_0_256.map')
-    image.save(image_size, "data/original")
-    data = image.data
+    output_size = (512, 512)
+    image.import_map(map)
+    image.save(output_size, "data/original")
+    graph = image.create_graph()
     dijkstra = Dijkstra()
-    graph = dijkstra.create_graph(data)
-    start = (9, 25)
-    end = (245, 251)
-    route, shortest_distance = dijkstra.calculate_distance(graph, start, end)
+    route, shortest_distance, visited = dijkstra.calculate_distance(graph, start, end)
     print("shortest distance: ", shortest_distance)
-    image.add_route(route)
-    image.save(image_size, "data/route")
+    image.add_route(visited, (100,0,0))
+    image.add_route(route, (0,0,0))
+    image.save(output_size, "data/route")
 
 if __name__ == "__main__":
     main()

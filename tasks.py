@@ -2,8 +2,8 @@ from invoke import task
 
 
 @task
-def start(ctx):
-    ctx.run("python3 src/index.py")
+def start(ctx, input_file, start_x, start_y, end_x, end_y):
+    ctx.run(f"python3 src/index.py {input_file} {start_x} {start_y} {end_x} {end_y}")
 
 
 @task
