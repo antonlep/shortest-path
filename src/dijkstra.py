@@ -32,7 +32,7 @@ class Dijkstra:
             return [], -1, {}
         route = self.calculate_route(previous, start, end)
         visited = self.calculate_visited(ready)
-        return route, distance[end], visited
+        return distance[end], route, visited
 
     def calculate_route(self, previous, start, end):
         route = [end]

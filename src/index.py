@@ -12,7 +12,7 @@ def main():
     image.save(output_size, "data/" + map + "_original")
     graph = image.create_graph()
     dijkstra = Dijkstra()
-    route, shortest_distance, visited = dijkstra.calculate_distance(graph, start, end)
+    shortest_distance, route, visited = dijkstra.calculate_distance(graph, start, end)
     print("shortest distance: ", shortest_distance)
     image.add_route(visited, (100,0,0))
     image.add_route(route, (0,0,0))
