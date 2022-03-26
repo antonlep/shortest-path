@@ -1,9 +1,9 @@
 # Week 2
 ## Things done this week
 * Working program that calculates shortest path with Dijkstra with command line arguments
-** .map file import.
-** Shortest distance calculation with Dijksta algorithm. Calculates shortest distance, shortest route and visited nodes.
-** Result export as .png file.
+  * .map file import.
+  * Shortest distance calculation with Dijksta algorithm. Calculates shortest distance, shortest route and visited nodes.
+  * Result export as .png file.
 * Unit tests, docstrings and linting added.
 * Continous integration with GitHub Actions, connected to codecov.
 
