@@ -15,4 +15,4 @@
 * Research JPS algorithm and start to implement.
 
 ## Time used
-15 h
+18 h
