@@ -22,9 +22,13 @@ Requires Python (>=3.8) and Poetry (>=1.1.11)
 `poetry run invoke start Berlin_0_256 164 62 64 139`
 
 Berlin_0_256: map file name
+
 146: start location x coordinate
+
 62: start location y coordinate
+
 64: end location x coordinate
+
 139: end location y coordinate
 
 Picture with shortest route and visited nodes are saves as .png file to src/data/
