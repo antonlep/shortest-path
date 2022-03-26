@@ -8,7 +8,7 @@
 * Continous integration with GitHub Actions, connected to codecov.
 
 ## Problems
-* No big issues at the moment. Calculated distance is slightly different than reference value, could be related to the way how the algorithms cut corners diagonally.
+* No big issues at the moment. Calculated distance is slightly different than reference value, could be related to the way how algorithm cut corners diagonally.
 
 ## Plans for next week
 * Find out reason why calculated distance differs from reference value. Test with obstacles and diagonal movemement. 
