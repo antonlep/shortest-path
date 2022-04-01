@@ -1,9 +1,10 @@
-from PIL import Image
 import math
+from PIL import Image
 
 
 class MapImage:
-    """Class that has operations for importing map data, creating graph and exporting result as picture file.
+    """Class that has operations for importing map data,
+        creating graph and exporting result as picture file.
 
     Args:
         width: Input map width
@@ -14,38 +15,41 @@ class MapImage:
         self.width = width
         self.height = height
         self.mode = 'RGB'
-        self.im = Image.new(self.mode, (self.width, self.height))
+        self.image = Image.new(self.mode, (self.width, self.height))
         self.data = []
+        self.map = None
 
-    def import_map(self, map):
+    def import_map(self, i_map):
         """Imports map file and converts it to image format and list.
 
         Args:
             map: Name of a map file.
         """
-        self.map = map
+        self.map = i_map
         data = []
-        with open(map) as f:
-            for x, line in enumerate(f):
+        with open(i_map, encoding="utf-8") as fil:
+            for x, line in enumerate(fil):
                 if x < 4:
                     continue
                 x = x - 4
                 row = []
                 for y, symbol in enumerate(line):
                     if symbol == ".":
-                        self.im.putpixel((x, y), (0, 0, 155))
+                        self.image.putpixel((y, x), (0, 0, 155))
                         row.append(symbol)
                     elif symbol == "@":
-                        self.im.putpixel((x, y), (0, 255, 0))
+                        self.image.putpixel((y, x), (0, 255, 0))
                         row.append(symbol)
                 data.append(row)
-        self.data = data
+
+        self.data = list(map(list, zip(*data)))
 
     def create_graph(self):
         """Converts image file to graph.
 
         Returns:
-            Graph as dictionary which includes neighboring nodes and their cost {(x,y): [((x2,y2), 1)]} 
+            Graph as dictionary which includes neighboring nodes and their cost
+            {(x,y): [((x2,y2), 1)]}
         """
         straight_cost = 1
         diagonal_cost = math.sqrt(2)
@@ -70,7 +74,12 @@ class MapImage:
                         new_pos = (i + move[0], j + move[1])
                         if 0 <= new_pos[0] < n and 0 <= new_pos[1] < m:
                             if self.data[new_pos[0]][new_pos[1]] == ".":
-                                graph[pos].append(((new_pos), diagonal_cost))
+                                diag1 = (i, j + move[1])
+                                diag2 = (i + move[0], j)
+                                if (self.data[diag1[0]][diag1[1]] == "."
+                                        and self.data[diag2[0]][diag2[1]] == "."):
+                                    graph[pos].append(
+                                        ((new_pos), diagonal_cost))
         return graph
 
     def add_route(self, route, color):
@@ -81,7 +90,7 @@ class MapImage:
             color: Color in RGB format.
         """
         for i in route:
-            self.im.putpixel((i[0], i[1]), color)
+            self.image.putpixel((i[0], i[1]), color)
 
     def save(self, size, name):
         """Saves image as png file.
@@ -90,5 +99,5 @@ class MapImage:
             size: Output image size.
             name: Output file name.
         """
-        im = self.im.resize(size)
-        im.save(name + '.png')
+        image = self.image.resize(size)
+        image.save(name + '.png')

@@ -2,8 +2,9 @@ from invoke import task
 
 
 @task
-def start(ctx, input_file, start_x, start_y, end_x, end_y):
-    ctx.run(f"python3 src/index.py {input_file} {start_x} {start_y} {end_x} {end_y}")
+def start(ctx, algorithm, input_file, start_x, start_y, end_x, end_y):
+    ctx.run(
+        f"python3 src/index.py {algorithm} {input_file} {start_x} {start_y} {end_x} {end_y}")
 
 
 @task
@@ -14,6 +15,7 @@ def test(ctx):
 @task
 def coverage(ctx):
     ctx.run("coverage run --branch -m pytest src; coverage xml")
+
 
 @task
 def coveragehtml(ctx):

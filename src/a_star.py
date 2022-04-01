@@ -1,14 +1,15 @@
 import queue
+import math
 from distance import Distance
 
 
-class Dijkstra(Distance):
-    """Class that calculates shortest distance with Dijkstra algorithm.
+class AStar(Distance):
+    """Class that calculates shortest distance with A* algorithm.
 
     """
 
     def calculate_distance(self, graph, start, end):
-        """Calculates shortest distance with Dijkstra algorithm.
+        """Calculates shortest distance with A* algorithm.
 
         Args:
             graph: Dictionary which includes neighboring nodes and their cost
@@ -28,14 +29,13 @@ class Dijkstra(Distance):
             distance[i] = self.inf
             ready[i] = False
         distance[start] = 0
-        heap = queue.PriorityQueue()
-        heap.put((0, start))
-        while not heap.empty():
-            _, x = heap.get()
+        priority_queue = queue.PriorityQueue()
+        f_cost = self.heuristic(start, end)
+        priority_queue.put((f_cost, start))
+        while not priority_queue.empty():
+            _, x = priority_queue.get()
             if x == end:
                 break
-            if ready[x]:
-                continue
             ready[x] = True
             for y in graph[x]:
                 old = distance[y[0]]
@@ -43,9 +43,13 @@ class Dijkstra(Distance):
                 if new < old:
                     distance[y[0]] = new
                     previous[y[0]] = x
-                    heap.put((new, y[0]))
+                    f_cost = new + self.heuristic(y[0], end)
+                    priority_queue.put((f_cost, y[0]))
         if distance[end] == self.inf:
             return -1, [], []
         route = self.calculate_route(previous, start, end)
         visited = self.calculate_visited(ready)
         return distance[end], route, visited
+
+    def heuristic(self, node, end):
+        return math.sqrt((node[0]-end[0])**2+(node[1]-end[1])**2)
