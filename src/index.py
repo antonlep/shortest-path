@@ -15,9 +15,6 @@ def main():
     image.import_map("data/" + image_map + ".map")
     image.save(output_size, "data/" + image_map + "_original")
     graph = image.create_graph()
-    # dijkstra = Dijkstra()
-    # shortest_distance, route, visited = dijkstra.calculate_distance(
-    #     graph, start, end)
     if algorithm == "a_star":
         alg = AStar()
     elif algorithm == "dijkstra":
@@ -31,23 +28,6 @@ def main():
     image.add_route(visited, (100, 0, 0))
     image.add_route(route, (0, 0, 0))
     image.save(output_size, "data/" + image_map + "_route")
-
-    diag = 1.4
-    graph2 = {}
-    graph2[(0, 0)] = [((1, 0), 1), ((0, 1), 1)]
-    graph2[(1, 0)] = [((0, 0), 1), ((1, 0), diag),
-                      ((2, 0), 1), ((2, 1), diag)]
-    graph2[(2, 0)] = [((1, 0), 1), ((2, 1), 1)]
-    graph2[(0, 1)] = []
-    graph2[(1, 1)] = []
-    graph2[(2, 1)] = []
-    graph2[(0, 2)] = [((0, 1), 1), ((1, 2), 1)]
-    graph2[(1, 2)] = [((0, 2), 1), ((0, 1), diag),
-                      ((2, 2), 1), ((2, 1), diag)]
-    graph2[(2, 2)] = [((2, 1), 1), ((1, 2), 1)]
-
-    shortest_distance, route, visited = alg.calculate_distance(
-        graph2, (0, 0), (2, 2))
 
 
 if __name__ == "__main__":
