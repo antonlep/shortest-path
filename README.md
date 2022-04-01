@@ -21,9 +21,11 @@ Requires Python (>=3.8) and Poetry (>=1.1.11)
 
 ### Calculate shortest distance between two points
 
-`poetry run invoke start Berlin_0_256 164 62 64 139`
+`poetry run invoke start dijkstra Berlin_0_256 164 62 64 139`
 
-Berlin_0_256: map file name
+dijkstra: shortest path algorithm (dijkstra | a_star)
+
+Berlin_0_256: map file name (located in src/data folder)
 
 146: start location x coordinate
 
@@ -51,4 +53,4 @@ Picture with shortest route and visited nodes is saved as .png file to src/data/
 
 Requires Pillow (>=9.0.1)
 
-`python3 src/index.py Berlin_0_256 164 62 64 139`
+`python3 src/index.py dijkstra Berlin_0_256 164 62 64 139`
