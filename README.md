@@ -53,4 +53,4 @@ Picture with shortest route and visited nodes is saved as .png file to src/data/
 
 Requires Pillow (>=9.0.1)
 
-`python3 src/index.py Berlin_0_256 164 62 64 139`
+`python3 src/index.py dijkstra Berlin_0_256 164 62 64 139`
