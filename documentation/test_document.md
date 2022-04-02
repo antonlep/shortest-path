@@ -13,7 +13,7 @@ Shortest distance, shortest route and visited nodes are tested with three input 
 ### Distance
 What happens if Distance class is used directly instead of using subclass is tested.
 ## Manual testing
-Program has been manually tested with Moving AI pathfinding benchmark example using Berlin_0_256.map scenario file. Calculated shortest path was correct with a couple of different start and end points, and with both Dijkstra and A* algorithm. In addition, route and visited nodes have been tested with a simple reference case:
+Program has been manually tested with Moving AI pathfinding benchmark example using Berlin_0_256.map scenario file. Calculated shortest distance was correct with a couple of different start and end points, and with both Dijkstra and A* algorithm. In addition, route and visited nodes have been tested with a simple reference case:
 
 Dijkstra:
 
