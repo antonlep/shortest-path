@@ -4,7 +4,7 @@
 * A* algorithm was implemented to compare with Dijkstra and to ensure that visited nodes and route are calculated correctly.
 * Testing with a couple of different input files and points.
 * Code refactoring to remove redundant parts.
-* More unit test cases.
+* More unit tests.
 * JPS algorithm research.
 
 ## Problems
