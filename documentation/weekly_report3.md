@@ -1,18 +1,16 @@
-# Week 2
+# Week 3
 ## Things done this week
-* Working program that calculates shortest path with Dijkstra with command line arguments
-  * .map file import.
-  * Shortest distance calculation with Dijksta algorithm. Calculates shortest distance, shortest route and visited nodes.
-  * Result export as .png file.
-* Unit tests, code coverage, docstrings and linting added.
-* Continous integration with GitHub Actions, connected to codecov.
+* Distance caluclation works correctly now. X and y directions needed to be corrected and the algorithm had to be prevented to cut corners.
+* A* algorithm was implemented to compare with Dijkstra and to ensure that visited nodes and route are calculated correctly.
+* Testing with couple of different input files.
+* Some code refactoring to remove redundant parts.
+* Unit test coverage improvement.
 
 ## Problems
 * No big issues at the moment. Calculated distance is slightly different than reference value, could be related to the way how algorithm cut corners diagonally.
 
 ## Plans for next week
-* Find out reason why calculated distance differs from reference value. Test with obstacles and diagonal movemement. 
 * Research JPS algorithm and start to implement.
 
 ## Time used
-18 h
+15 h
