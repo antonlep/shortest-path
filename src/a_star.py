@@ -52,4 +52,13 @@ class AStar(Distance):
         return distance[end], route, visited
 
     def heuristic(self, node, end):
+        """Heuristic calculation.
+
+        Args:
+            node: start node coordinates
+            end: end node coordinates
+
+        Returns:
+            Euclidean distance between start and end points.
+        """
         return math.sqrt((node[0]-end[0])**2+(node[1]-end[1])**2)
