@@ -11,13 +11,13 @@ class MapImage:
         height: Input map height
     """
 
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
+    def __init__(self, fg_color, bg_color):
         self.mode = 'RGB'
-        self.image = Image.new(self.mode, (self.width, self.height))
+        self.fg_color = fg_color
+        self.bg_color = bg_color
+        self.size = 0
+        self.image = None
         self.data = []
-        self.map = None
 
     def import_map(self, i_map):
         """Imports map file and converts it to image format and list.
@@ -25,7 +25,12 @@ class MapImage:
         Args:
             map: Name of a map file.
         """
-        self.map = i_map
+        with open(i_map, encoding="utf-8") as fil:
+            self.size = len(fil.readlines())
+        self.size -= 4
+
+        self.image = Image.new(self.mode, (self.size, self.size))
+
         data = []
         with open(i_map, encoding="utf-8") as fil:
             for x, line in enumerate(fil):
@@ -35,10 +40,10 @@ class MapImage:
                 row = []
                 for y, symbol in enumerate(line):
                     if symbol == ".":
-                        self.image.putpixel((y, x), (0, 0, 155))
+                        self.image.putpixel((y, x), self.bg_color)
                         row.append(symbol)
                     elif symbol == "@":
-                        self.image.putpixel((y, x), (0, 255, 0))
+                        self.image.putpixel((y, x), self.fg_color)
                         row.append(symbol)
                 data.append(row)
 
@@ -92,12 +97,12 @@ class MapImage:
         for i in route:
             self.image.putpixel((i[0], i[1]), color)
 
-    def save(self, size, name):
+    def save(self, name, scale=1):
         """Saves image as png file.
 
         Args:
-            size: Output image size.
+            scale: Output image scaling size.
             name: Output file name.
         """
-        image = self.image.resize(size)
+        image = self.image.resize((scale*self.size, scale*self.size))
         image.save(name + '.png')
