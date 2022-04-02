@@ -13,7 +13,7 @@ Shortest path solver in Python.
 
 [Weekly report 2](https://github.com/antonlep/shortest-path/blob/master/documentation/weekly_report2.md)
 
-[Weekly report 3](https://github.com/antonlep/shortest-path/blob/master/documentation/weekly_report2.md)
+[Weekly report 3](https://github.com/antonlep/shortest-path/blob/master/documentation/weekly_report3.md)
 
 
 ## Installation
