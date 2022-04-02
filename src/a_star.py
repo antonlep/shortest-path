@@ -24,31 +24,34 @@ class AStar(Distance):
             return -1, [], []
         distance = {}
         previous = {}
-        ready = {}
+        closed = {}
         for i in graph:
             distance[i] = self.inf
-            ready[i] = False
+            closed[i] = False
         distance[start] = 0
-        priority_queue = queue.PriorityQueue()
+        open = queue.PriorityQueue()
         f_cost = self.heuristic(start, end)
-        priority_queue.put((f_cost, start))
-        while not priority_queue.empty():
-            _, x = priority_queue.get()
+        open.put((f_cost, start))
+        while not open.empty():
+            _, x = open.get()
             if x == end:
                 break
-            ready[x] = True
-            for y in graph[x]:
-                old = distance[y[0]]
-                new = distance[x] + y[1]
+            if closed[x]:
+                continue
+            closed[x] = True
+            for neighbor, dist in graph[x]:
+                old = distance[neighbor]
+                new = distance[x] + dist
                 if new < old:
-                    distance[y[0]] = new
-                    previous[y[0]] = x
-                    f_cost = new + self.heuristic(y[0], end)
-                    priority_queue.put((f_cost, y[0]))
+                    distance[neighbor] = new
+                    previous[neighbor] = x
+                    f_cost = new + self.heuristic(neighbor, end)
+                    open.put((f_cost, neighbor))
+
         if distance[end] == self.inf:
             return -1, [], []
         route = self.calculate_route(previous, start, end)
-        visited = self.calculate_visited(ready)
+        visited = self.calculate_visited(closed)
         return distance[end], route, visited
 
     def heuristic(self, node, end):

@@ -23,29 +23,29 @@ class Dijkstra(Distance):
             return -1, [], []
         distance = {}
         previous = {}
-        ready = {}
+        closed = {}
         for i in graph:
             distance[i] = self.inf
-            ready[i] = False
+            closed[i] = False
         distance[start] = 0
-        heap = queue.PriorityQueue()
-        heap.put((0, start))
-        while not heap.empty():
-            _, x = heap.get()
+        open = queue.PriorityQueue()
+        open.put((0, start))
+        while not open.empty():
+            _, x = open.get()
             if x == end:
                 break
-            if ready[x]:
+            if closed[x]:
                 continue
-            ready[x] = True
-            for y in graph[x]:
-                old = distance[y[0]]
-                new = distance[x] + y[1]
+            closed[x] = True
+            for neighbor, dist in graph[x]:
+                old = distance[neighbor]
+                new = distance[x] + dist
                 if new < old:
-                    distance[y[0]] = new
-                    previous[y[0]] = x
-                    heap.put((new, y[0]))
+                    distance[neighbor] = new
+                    previous[neighbor] = x
+                    open.put((new, neighbor))
         if distance[end] == self.inf:
             return -1, [], []
         route = self.calculate_route(previous, start, end)
-        visited = self.calculate_visited(ready)
+        visited = self.calculate_visited(closed)
         return distance[end], route, visited
