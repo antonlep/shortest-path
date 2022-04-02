@@ -7,6 +7,8 @@ Shortest path solver in Python.
 ## Documentation
 [Project definition](https://github.com/antonlep/shortest-path/blob/master/documentation/project_definition.md)
 
+[Test document](https://github.com/antonlep/shortest-path/blob/master/documentation/test_document.md)
+
 [Weekly report 1](https://github.com/antonlep/shortest-path/blob/master/documentation/weekly_report1.md)
 
 [Weekly report 2](https://github.com/antonlep/shortest-path/blob/master/documentation/weekly_report2.md)
