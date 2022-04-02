@@ -5,6 +5,7 @@
 * Testing with a couple of different input files and points.
 * Code refactoring to remove redundant parts.
 * More unit tests.
+* Start to write test document.
 * JPS algorithm research.
 
 ## Problems
