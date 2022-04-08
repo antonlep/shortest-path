@@ -3,12 +3,13 @@ import time
 from map_image import MapImage
 from dijkstra import Dijkstra
 from a_star import AStar
+from jps import JPS
 
 OBSTACLE_COLOR = (0, 255, 0)
 BACKGROUND_COLOR = (0, 0, 255)
 VISITED_COLOR = (100, 0, 0)
 ROUTE_COLOR = (0, 0, 0)
-SCALE_FACTOR = 2
+SCALE_FACTOR = 20
 
 
 def main():
@@ -24,14 +25,20 @@ def main():
         alg = AStar()
     elif algorithm == "dijkstra":
         alg = Dijkstra()
+    elif algorithm == "jps":
+        alg = JPS()
     start_time = time.time()
     shortest_distance, route, visited = alg.calculate_distance(
         graph, start, end)
     end_time = time.time()
     print("Shortest distance: ", shortest_distance)
     print("Time used: ", end_time - start_time)
-    image.add_route(visited, VISITED_COLOR)
-    image.add_route(route, ROUTE_COLOR)
+    if algorithm == "jps":
+        image.add_route(route, ROUTE_COLOR)
+        image.add_route(visited, VISITED_COLOR)
+    else:
+        image.add_route(visited, VISITED_COLOR)
+        image.add_route(route, ROUTE_COLOR)
     image.save("data/" + image_map + "_route", SCALE_FACTOR)
 
 

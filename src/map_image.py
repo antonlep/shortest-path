@@ -79,12 +79,11 @@ class MapImage:
                         new_pos = (i + move[0], j + move[1])
                         if 0 <= new_pos[0] < n and 0 <= new_pos[1] < m:
                             if self.data[new_pos[0]][new_pos[1]] == ".":
-                                diag1 = (i, j + move[1])
-                                diag2 = (i + move[0], j)
-                                if (self.data[diag1[0]][diag1[1]] == "."
-                                        and self.data[diag2[0]][diag2[1]] == "."):
-                                    graph[pos].append(
-                                        ((new_pos), diagonal_cost))
+                                # diag1 = (i, j + move[1])
+                                # diag2 = (i + move[0], j)
+                                # if (self.data[diag1[0]][diag1[1]] == "."
+                                #         and self.data[diag2[0]][diag2[1]] == "."):
+                                graph[pos].append(((new_pos), diagonal_cost))
         return graph
 
     def add_route(self, route, color):
@@ -104,5 +103,6 @@ class MapImage:
             scale: Output image scaling size.
             name: Output file name.
         """
-        image = self.image.resize((scale*self.size, scale*self.size))
+        image = self.image.resize(
+            (scale*self.size, scale*self.size), resample=0)
         image.save(name + '.png')

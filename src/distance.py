@@ -24,7 +24,20 @@ class Distance:
         route = [end]
         u = end
         while u != start:
-            route.append(previous[u])
+            prev = previous[u]
+            direction = (prev[0] - u[0], prev[1] - u[1])
+            if direction[0] >= 1:
+                direction = (1, direction[1])
+            elif direction[0] <= -1:
+                direction = (-1, direction[1])
+            if direction[1] >= 1:
+                direction = (direction[0], 1)
+            elif direction[1] <= -1:
+                direction = (direction[0], -1)
+            v = u
+            while v != prev:
+                v = (v[0] + direction[0], v[1] + direction[1])
+                route.append(v)
             u = previous[u]
         return route
 

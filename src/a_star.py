@@ -33,7 +33,8 @@ class AStar(Distance):
         f_cost = self.heuristic(start, end)
         open.put((f_cost, start))
         while not open.empty():
-            _, x = open.get()
+            p, x = open.get()
+            # print("p: ", p, "x: ", x)
             if x == end:
                 break
             if closed[x]:
