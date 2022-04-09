@@ -7,12 +7,10 @@ https://app.codecov.io/gh/antonlep/shortest-path.
 
 ### MapImage
 Map file import and graph creation is tested with two input files. Adding route to existing image is also tested. Testing of file loading from disk and saving to disk could be improved.
-### Dijkstra
-Shortest distance, shortest route and visited nodes are tested with three input graphs and different start and end locations.
-### AStar
-Shortest distance, shortest route and visited nodes are tested with three input graphs and different start and end locations.
+### Dijkstra, AStar and JPS
+For these three classes, shortest distance, shortest route and visited nodes are tested with three input graphs and various start and end locations.
 ### Distance
-What happens if Distance class is used directly instead of using subclass is tested.
+Distance class own methods are tested in case that the class is classed without using subclass.
 ## Manual testing
 Program has been manually tested with Moving AI pathfinding benchmark example using Berlin_0_256.map scenario file. Calculated shortest distance was correct with a couple of different start and end points, and with both Dijkstra and A* algorithm. In addition, route and visited nodes have been tested with a simple reference case:
 
