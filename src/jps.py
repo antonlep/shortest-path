@@ -35,7 +35,6 @@ class JPS(Distance):
         first_node = True
         while not open_list.empty():
             _, x = open_list.get()
-            # print("p: ", p, " x: ", x)
             if x == end:
                 break
             if closed[x]:
@@ -48,12 +47,9 @@ class JPS(Distance):
                 first_node = False
             else:
                 natural_neighbors = self.prune(previous[x], x, neighbors)
-            # print("natural neighbors: ", natural_neighbors)
             for neighbor, _ in natural_neighbors:
                 direction = (neighbor[0] - x[0], neighbor[1] - x[1])
                 n = self.jump(graph, x, direction, start, end)
-                # print("n: ", n)
-                # print("direction; ", direction, " n: ", n)
                 if n is not None:
                     successors.append(n)
             for successor in successors:
@@ -68,7 +64,6 @@ class JPS(Distance):
             return -1, [], []
         route = self.calculate_route(previous, start, end)
         visited = self.calculate_visited(closed)
-        # print(route)
         return distance[end], route, visited
 
     def prune(self, parent, node, neighbors):

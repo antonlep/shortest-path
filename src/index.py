@@ -9,7 +9,8 @@ OBSTACLE_COLOR = (255, 255, 255)
 BACKGROUND_COLOR = (0, 50, 150)
 VISITED_COLOR = (200, 50, 25)
 ROUTE_COLOR = (0, 0, 0)
-ENDS_COLOR = (0, 255, 0)
+START_COLOR = (255, 255, 0)
+END_COLOR = (0, 255, 0)
 SCALE_FACTOR = 10
 
 
@@ -40,8 +41,8 @@ def main():
     else:
         image.add_route(visited, VISITED_COLOR)
         image.add_route(route, ROUTE_COLOR)
-    image.add_route([route[0]], ENDS_COLOR)
-    image.add_route([route[-1]], ENDS_COLOR)
+    image.add_route([route[-1]], START_COLOR)
+    image.add_route([route[0]], END_COLOR)
     image.save("data/" + image_map + "_route", SCALE_FACTOR)
 
 
