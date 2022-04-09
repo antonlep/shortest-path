@@ -28,7 +28,7 @@ Requires Python (>=3.8) and Poetry (>=1.1.11)
 
 `poetry run invoke start dijkstra Berlin_0_256 164 62 64 139`
 
-dijkstra: shortest path algorithm (dijkstra | a_star)
+dijkstra: shortest path algorithm (dijkstra | a_star | jps)
 
 Berlin_0_256: map file name (located in src/data folder)
 
