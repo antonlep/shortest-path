@@ -84,6 +84,7 @@ class MapImage:
                                 # if (self.data[diag1[0]][diag1[1]] == "."
                                 #         and self.data[diag2[0]][diag2[1]] == "."):
                                 graph[pos].append(((new_pos), diagonal_cost))
+        print(graph)
         return graph
 
     def add_route(self, route, color):
