@@ -28,10 +28,10 @@ class Dijkstra(Distance):
             distance[i] = self.inf
             closed[i] = False
         distance[start] = 0
-        open = queue.PriorityQueue()
-        open.put((0, start))
-        while not open.empty():
-            _, x = open.get()
+        open_list = queue.PriorityQueue()
+        open_list.put((0, start))
+        while not open_list.empty():
+            _, x = open_list.get()
             if x == end:
                 break
             if closed[x]:
@@ -43,7 +43,7 @@ class Dijkstra(Distance):
                 if new < old:
                     distance[neighbor] = new
                     previous[neighbor] = x
-                    open.put((new, neighbor))
+                    open_list.put((new, neighbor))
         if distance[end] == self.inf:
             return -1, [], []
         route = self.calculate_route(previous, start, end)

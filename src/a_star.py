@@ -29,12 +29,11 @@ class AStar(Distance):
             distance[i] = self.inf
             closed[i] = False
         distance[start] = 0
-        open = queue.PriorityQueue()
+        open_list = queue.PriorityQueue()
         f_cost = self.heuristic(start, end)
-        open.put((f_cost, start))
-        while not open.empty():
-            p, x = open.get()
-            # print("p: ", p, "x: ", x)
+        open_list.put((f_cost, start))
+        while not open_list.empty():
+            _, x = open_list.get()
             if x == end:
                 break
             if closed[x]:
@@ -47,7 +46,7 @@ class AStar(Distance):
                     distance[neighbor] = new
                     previous[neighbor] = x
                     f_cost = new + self.heuristic(neighbor, end)
-                    open.put((f_cost, neighbor))
+                    open_list.put((f_cost, neighbor))
 
         if distance[end] == self.inf:
             return -1, [], []

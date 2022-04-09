@@ -29,12 +29,12 @@ class JPS(Distance):
             distance[i] = self.inf
             closed[i] = False
         distance[start] = 0
-        open = queue.PriorityQueue()
+        open_list = queue.PriorityQueue()
         f_cost = self.heuristic(start, end)
-        open.put((f_cost, start))
+        open_list.put((f_cost, start))
         first_node = True
-        while not open.empty():
-            p, x = open.get()
+        while not open_list.empty():
+            _, x = open_list.get()
             # print("p: ", p, " x: ", x)
             if x == end:
                 break
@@ -49,12 +49,12 @@ class JPS(Distance):
             else:
                 natural_neighbors = self.prune(previous[x], x, neighbors)
             # print("natural neighbors: ", natural_neighbors)
-            for neighbor, dist in natural_neighbors:
+            for neighbor, _ in natural_neighbors:
                 direction = (neighbor[0] - x[0], neighbor[1] - x[1])
                 n = self.jump(graph, x, direction, start, end)
                 # print("n: ", n)
                 # print("direction; ", direction, " n: ", n)
-                if n != None:
+                if n is not None:
                     successors.append(n)
             for successor in successors:
                 old = distance[successor]
@@ -63,7 +63,7 @@ class JPS(Distance):
                     distance[successor] = new
                     previous[successor] = x
                     f_cost = new + self.heuristic(successor, end)
-                    open.put((f_cost, successor))
+                    open_list.put((f_cost, successor))
         if distance[end] == self.inf:
             return -1, [], []
         route = self.calculate_route(previous, start, end)
@@ -122,22 +122,22 @@ class JPS(Distance):
         graph_size = math.sqrt(len(graph))
         n = (node[0] + direction[0], node[1] + direction[1])
         if n[0] < 0 or n[1] < 0 or n[0] >= graph_size or n[1] >= graph_size or not graph[n]:
-            return
+            return None
         if n == goal:
             return n
         if self.forced_neighbor(n, direction, graph[n]):
             return n
         if direction[0] != 0 and direction[1] != 0:
-            if self.jump(graph, n, (direction[0], 0), start, goal) != None:
+            if self.jump(graph, n, (direction[0], 0), start, goal) is not None:
                 return n
-            if self.jump(graph, n, (0, direction[1]), start, goal) != None:
+            if self.jump(graph, n, (0, direction[1]), start, goal) is not None:
                 return n
         return self.jump(graph, n, direction, start, goal)
 
     def forced_neighbor(self, node, direction, neighbors):
         neighbors = [n[0] for n in neighbors]
         if direction[0] == 0:
-            if (node[0] + 1, node[1]) not in neighbors and (node[0] + 1, node[1] + direction[1]) in neighbors:
+            if ((node[0] + 1, node[1]) not in neighbors and (node[0] + 1, node[1] + direction[1]) in neighbors):
                 return True
             if (node[0] - 1, node[1]) not in neighbors and (node[0] - 1, node[1] + direction[1]) in neighbors:
                 return True
