@@ -6,8 +6,10 @@ MapImage includes operations for creating MapImage object, coverting it to graph
 ### Distance
 Distance calculation algorithms are implemented with template method pattern. Distance class is superclass, which includes basic methods for creating shortest route and visited nodes, and skeleton methods for distance calculation and heuristic.
 ### Dijkstra, AStar and JPS 
-These subclasses inherit the Distance class. Each class has its own distance calculation method according to the algorithm in use.
+These subclasses inherit the Distance class and overwrite its distance calculation method. 
 ## Sources
+[Laaksonen, Antti "Tietorakenteet ja algoritmit"](https://github.com/hy-tira/tirakirja/raw/master/tirakirja.pdf)
+
 [Dijkstra algorithm, Wikipedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
 
 [A* algorithm, Wikipedia](https://en.wikipedia.org/wiki/A*_search_algorithm)
