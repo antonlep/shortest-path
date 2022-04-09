@@ -1,6 +1,6 @@
 # Week 4
 ## Things done this week
-* JPS algorithm initial implementation. At the moment calculates correct distances and jump points are correct. Calculation speed could be improved.
+* JPS algorithm initial implementation. At the moment calculates correct distances and jump points. Calculation speed could be improved.
 * Four test cases with relatively small maps have been defined to ensure that calculated routes, visited nodes and shortest distance is correct.
 * Initial performance comparison with large map.
 * Test document update.
