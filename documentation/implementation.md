@@ -19,5 +19,7 @@ Berlin_0_256.map file is used as benchmark case for comparison between algorithm
 Based on calculation times, it seems that A* is faster than Dijkstra, which makes sense considering that it is supposed to be improvement to the Dijkstra algorithm, and with the help of heuristic it doesn't have to visit as many nodes than Dijkstra. At the moment JPS is slowest especially with maps with large open spaces, which is in contradiction to theory which states that it should be fastest out of these three. There are some details in current JPS algorithm implementation that can be improved, at the moment it was quickly created without paying much attention to performance. 
 ## Sources
 [Dijkstra algorithm, Wikipedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+
 [A* algorithm, Wikipedia] (https://en.wikipedia.org/wiki/A*_search_algorithm)
+
 [Harabor, Daniel, and Alban Grastien. "Online graph pruning for pathfinding on grid maps." Proceedings of the AAAI Conference on Artificial Intelligence. Vol. 25. No. 1. 2011.](http://users.cecs.anu.edu.au/~dharabor/data/papers/harabor-grastien-aaai11.pdf)
