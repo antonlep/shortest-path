@@ -67,6 +67,16 @@ class JPS(Distance):
         return distance[end], route, visited
 
     def prune(self, parent, node, neighbors):
+        """Removes unnecessary neighbor nodes.
+
+        Args:
+            parent: Previous node
+            node: Current node
+            neighbors: Neighbor nodes as list
+
+        Returns:
+            List of nodes, from which unneccessary nodes have been removed
+        """
         mask = []
         direction = (node[0] - parent[0], node[1] - parent[1])
         if direction[0] >= 1:
@@ -114,6 +124,19 @@ class JPS(Distance):
         return [x for x in neighbors if x[0] in mask]
 
     def jump(self, graph, node, direction, start, goal):
+        """Calculates if there is jump point in defined direction.
+
+        Args:
+            graph: Dictionary which includes neighboring nodes and their cost
+                   {(x,y): [((x2,y2), 1)]}
+            node: Current node
+            direction: Move direction
+            start: Tuple with x, y coordinates of start point
+            goal: Tuple with x, y coordinates of end point
+
+        Returns:
+            Jump point node if it exists, otherwise None
+        """
         graph_size = math.sqrt(len(graph))
         n = (node[0] + direction[0], node[1] + direction[1])
         if n[0] < 0 or n[1] < 0 or n[0] >= graph_size or n[1] >= graph_size or not graph[n]:
@@ -130,6 +153,16 @@ class JPS(Distance):
         return self.jump(graph, n, direction, start, goal)
 
     def forced_neighbor(self, node, direction, neighbors):
+        """Checks if nodehas forced neighbors according to JPS algorithm definition.
+
+        Args:
+            node: Current node
+            direction: Move direction
+            neighbors: Neighbor nodes as list
+
+        Returns:
+            True if node has forced neighbors, False otherwise
+        """
         neighbors = [n[0] for n in neighbors]
         if direction[0] == 0:
             if ((node[0] + 1, node[1]) not in neighbors and (node[0] + 1, node[1] + direction[1]) in neighbors):

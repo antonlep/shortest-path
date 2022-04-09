@@ -7,8 +7,8 @@ class MapImage:
         creating graph and exporting result as picture file.
 
     Args:
-        width: Input map width
-        height: Input map height
+        fg_color: Obstacle color in RGB format
+        bg_color: Background color in RGB format
     """
 
     def __init__(self, fg_color, bg_color):
@@ -20,10 +20,10 @@ class MapImage:
         self.data = []
 
     def import_map(self, i_map):
-        """Imports map file and converts it to image format and list.
+        """Imports map file and converts it to image format and to list.
 
         Args:
-            map: Name of a map file.
+            i_map: Name of a map file.
         """
         with open(i_map, encoding="utf-8") as fil:
             self.size = len(fil.readlines())
