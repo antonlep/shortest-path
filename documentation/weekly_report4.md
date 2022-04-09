@@ -12,6 +12,7 @@
 
 ## Plans for next week
 * Improve JPS algorithm speed (first change how neighbor nodes are checked)
+* More unit tests for JPS
 * Include checks for command line arguments (possibly separate class)
 * Clean up index.py file
 
