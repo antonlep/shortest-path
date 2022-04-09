@@ -8,7 +8,7 @@ Distance calculation algorithms are implemented with template method pattern. Di
 ### Dijkstra, AStar and JPS 
 These subclasses inherit the Distance class and overwrite its distance calculation method. 
 ## Sources
-[Laaksonen, Antti "Tietorakenteet ja algoritmit"](https://github.com/hy-tira/tirakirja/raw/master/tirakirja.pdf)
+[Laaksonen, Antti "Tietorakenteet ja algoritmit" (2021)](https://github.com/hy-tira/tirakirja/raw/master/tirakirja.pdf)
 
 [Dijkstra algorithm, Wikipedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
 
