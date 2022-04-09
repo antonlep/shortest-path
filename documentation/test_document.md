@@ -12,15 +12,7 @@ For these three classes, shortest distance, shortest route and visited nodes are
 ### Distance
 Distance class own methods are tested in case that the class is classed without using subclass.
 ## Manual testing
-Program has been manually tested with Moving AI pathfinding benchmark example using Berlin_0_256.map scenario file. Calculated shortest distance was correct with a couple of different start and end points, and with both Dijkstra and A* algorithm. In addition, route and visited nodes have been tested with a simple reference case:
+Four manual test cases have been made with four different map files. In all cases the calculated shortest path and visited nodes are correct. Color codes: wall = white, unvisited floor = blue, visited floor = red, shortest route = black, start point = yellow, end point = green. 
 
-Dijkstra:
-
-![dijkstra](https://user-images.githubusercontent.com/76871257/161380415-1bc8d1d6-a67d-4843-8877-4e112426ca50.PNG)
-
-A*:
-
-![a_Star](https://user-images.githubusercontent.com/76871257/161380419-8547b7c3-0138-4ce5-9e5d-fa61599aac9e.PNG)
-
-
-![test_small](https://user-images.githubusercontent.com/76871257/162573696-0aa0c447-7b7e-4600-a7e2-b8b73c9b695a.PNG)
+### test_small.map, start point (0,4), end point (7,4), shortest distance 10.07
+![test_small](https://user-images.githubusercontent.com/76871257/162573767-1d47e352-cf83-48e9-a351-9cc543c1722c.PNG)
