@@ -12,7 +12,7 @@ For these three classes, shortest distance, shortest route and visited nodes are
 ### Distance
 Distance class own methods are tested in case that the class is classed without using subclass.
 ## Manual testing
-Four reference test cases have been made with four different map files. In all cases the calculated shortest path and visited nodes are correct. In case of JPS algorithm, jump points are displayed instead of visited nodes. Color codes: wall = white, unvisited floor = blue, visited floor = red, shortest route = black, start point = yellow, end point = green. 
+Four reference test cases have been made with four different map files to validate shortest path and to make sure that visited nodes are correct. In case of JPS algorithm, jump points are examined instead of visited nodes. Color codes: wall = white, unvisited floor = blue, visited floor = red, shortest route = black, start point = yellow, end point = green. 
 
 ### test_small.map, start point (0,4), end point (7,4), shortest distance 10.07
 ![test_small](https://user-images.githubusercontent.com/76871257/162573767-1d47e352-cf83-48e9-a351-9cc543c1722c.PNG)
