@@ -2,7 +2,7 @@
 ## Program structure
 Program is divided into five classes, and main executable file main.py. Short description of classes:
 ### MapImage
-MapImage includes operations for creating MapImage object, coverting it to graph format, adding routes and points to the image and saving the image to disk.
+MapImage includes operations for creating MapImage object from input text file, coverting it to graph format, adding routes and points to the image and saving the image to disk.
 ### Distance
 Distance calculation algorithms are implemented with template method pattern. Distance class is superclass, which includes basic methods for creating shortest route and visited nodes, and skeleton methods for distance calculation and heuristic.
 ### Dijkstra, AStar and JPS 
