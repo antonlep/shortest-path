@@ -16,3 +16,6 @@ Four reference test cases have been made with four different map files to valida
 
 ### test_small.map, start point (0,4), end point (7,4), shortest distance 10.07
 ![test_small](https://user-images.githubusercontent.com/76871257/162573767-1d47e352-cf83-48e9-a351-9cc543c1722c.PNG)
+
+### test_small2.map, start point (6,5), end point (12,0), shortest distance 22.66
+![test_small2](https://user-images.githubusercontent.com/76871257/162574266-80eb12e6-d8fa-431c-a9ca-20d774010c88.PNG)
