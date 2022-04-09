@@ -21,3 +21,6 @@ Dijkstra:
 A*:
 
 ![a_Star](https://user-images.githubusercontent.com/76871257/161380419-8547b7c3-0138-4ce5-9e5d-fa61599aac9e.PNG)
+
+
+![test_small](https://user-images.githubusercontent.com/76871257/162573696-0aa0c447-7b7e-4600-a7e2-b8b73c9b695a.PNG)
