@@ -20,6 +20,8 @@ Based on calculation times, it seems that A* is faster than Dijkstra, which make
 ## Sources
 [Dijkstra algorithm, Wikipedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
 
-[A* algorithm, Wikipedia] (https://en.wikipedia.org/wiki/A*_search_algorithm)
+[A* algorithm, Wikipedia](https://en.wikipedia.org/wiki/A*_search_algorithm)
 
 [Harabor, Daniel, and Alban Grastien. "Online graph pruning for pathfinding on grid maps." Proceedings of the AAAI Conference on Artificial Intelligence. Vol. 25. No. 1. 2011.](http://users.cecs.anu.edu.au/~dharabor/data/papers/harabor-grastien-aaai11.pdf)
+
+[Sturtevant, Nathan R. "Benchmarks for grid-based pathfinding." IEEE Transactions on Computational Intelligence and AI in Games 4.2 (2012): 144-148.] (https://movingai.com/benchmarks/grids.html)
