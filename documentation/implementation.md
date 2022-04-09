@@ -12,5 +12,7 @@ Berlin_0_256.map file is used as benchmark case for comparison between algorithm
 
 | Start point | End point   | Time, Dijkstra | Time, A* | Time, JPS | Shortest distance |
 | ----------- | ----------- | ----------- | ----------- | --------- | ----------------- |
-| Header      | Title       | Paragraph   | Text        |           |                   |
+| 9, 25       | 245, 251    | 0.265       | 0.258       | 4.120     | 368.9             |
+| 9, 25       | 245, 251    | 0.265       | 0.258       | 4.120     | 368.9             |
+| 9, 25       | 245, 251    | 0.265       | 0.258       | 4.120     | 368.9             |
 
