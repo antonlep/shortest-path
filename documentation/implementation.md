@@ -16,7 +16,7 @@ Berlin_0_256.map file is used as benchmark case for comparison between algorithm
 | 220, 21       | 150, 220    | 0.240       | 0.137       | 4.066     | 258.1             |
 | 9, 25       | 245, 251    | 0.265       | 0.258       | 4.120     | 368.9             |
 
-Based on calculation times, it seems that A* is faster than Dijkstra, which makes sense considering that it is supposed to be improvement to the Dijkstra algorithm, and with the help of heuristic it doesn't have to visit as many nodes than Dijkstra. At the moment JPS is slowest especially with maps with large open spaces, which is in contradiction to theory which states that it should be fastest out of these three. There are some details in current JPS algorithm implementation that can be improved, at the moment it was quickly created without paying much attention to performance. 
+Based on calculation times, it seems that A* is faster than Dijkstra, which makes sense considering that it is supposed to be improvement to the Dijkstra algorithm, and with the help of heuristic it doesn't have to visit as many nodes than Dijkstra. At the moment JPS is slowest especially with maps with large open spaces, which is in contradiction to theory which states that it should be fastest out of these three. There are some details in current JPS implementation that can be improved, at the moment it was quickly created without paying much attention to performance. 
 ## Sources
 [Dijkstra algorithm, Wikipedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
 
