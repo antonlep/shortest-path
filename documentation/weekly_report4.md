@@ -8,8 +8,8 @@
 
 
 ## Problems
-* JPS algorithm is too slow at the moment, probably related to how neighbor nodes are currently checked as there are quite many checks to see if specific element is in a list.
-*  
+* JPS algorithm is too slow at the moment, probably related to how neighbor nodes are currently checked as there are quite many checks to see if specific element is in a list. Otherwise no issues.
+
 ## Plans for next week
 * Improve JPS algorithm speed (first change how neighbor nodes are checked)
 * Include checks for command line arguments (possibly separate class)
