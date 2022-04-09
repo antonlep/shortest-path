@@ -11,7 +11,7 @@ Map file import and graph creation is tested with two input files. Adding route 
 For these three classes, shortest distance, shortest route and visited nodes are tested with three input graphs and various start and end locations.
 ### Distance
 Distance class own methods are tested in case that the class is classed without using subclass.
-## Route testing
+## Route testing with small map
 Four reference test cases have been made with four different map files to validate shortest path and to make sure that visited nodes are correct. In case of JPS algorithm, jump points are examined instead of visited nodes. Color codes: wall = white, unvisited floor = blue, visited floor = red, shortest route = black, start point = yellow, end point = green. 
 
 ### test_small.map, start point (0,4), end point (7,4), shortest distance 10.07
@@ -26,7 +26,7 @@ Four reference test cases have been made with four different map files to valida
 ### test_medium2.map, start point (2,8), end point (12,8), shortest distance 19.31
 ![test_medium2](https://user-images.githubusercontent.com/76871257/162574528-b1e8a97e-1e3a-4f07-8cd8-4370ed155bb3.PNG)
 
-## Performance testing
+## Performance testing with large map
 Berlin_0_256.map file is used as benchmark case for comparison between algorithms (https://movingai.com/benchmarks/grids.html).
 
 | Start point | End point   | Time, Dijkstra | Time, A* | Time, JPS | Shortest distance |
