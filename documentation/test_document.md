@@ -25,3 +25,6 @@ Four reference test cases have been made with four different map files to valida
 
 ### test_medium2.map, start point (2,8), end point (12,8), shortest distance 19.31
 ![test_medium2](https://user-images.githubusercontent.com/76871257/162574528-b1e8a97e-1e3a-4f07-8cd8-4370ed155bb3.PNG)
+
+## Large map testing
+Manual testing has been made with Berlin_0_256.map file from Moving AI Lab (https://movingai.com/benchmarks/grids.html) with various start and end points to ensure that the correct path is calculated with all algorithms. 
