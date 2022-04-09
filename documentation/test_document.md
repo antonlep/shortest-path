@@ -1,6 +1,6 @@
 # Test document
 ## Unit testing
-Each class has been separately tested with Python unittest framework.
+Each class is separately tested with Python unittest framework.
 ![coverage](https://user-images.githubusercontent.com/76871257/162572972-7839da38-b157-4e79-a766-0d2b70b6b6eb.png)
 
 https://app.codecov.io/gh/antonlep/shortest-path.
