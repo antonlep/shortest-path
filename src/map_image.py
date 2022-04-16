@@ -60,26 +60,24 @@ class MapImage:
         diagonal_cost = math.sqrt(2)
         n = len(self.data)
         m = len(self.data[0])
-        graph = {}
+        graph = [[[]]*m for _ in range(n)]
         moves_straight = [(-1, 0), (0, -1), (0, 1), (1, 0)]
         moves_diagonal = [(-1, -1), (-1, 1), (1, -1), (1, 1)]
         for i in range(n):
             for j in range(m):
-                graph[(i, j)] = []
-        for i in range(n):
-            for j in range(m):
-                pos = (i, j)
+                neighbors = []
                 if self.data[i][j] == ".":
                     for move in moves_straight:
                         new_pos = (i + move[0], j + move[1])
                         if 0 <= new_pos[0] < n and 0 <= new_pos[1] < m:
                             if self.data[new_pos[0]][new_pos[1]] == ".":
-                                graph[pos].append(((new_pos), straight_cost))
+                                neighbors.append(((new_pos), straight_cost))
                     for move in moves_diagonal:
                         new_pos = (i + move[0], j + move[1])
                         if 0 <= new_pos[0] < n and 0 <= new_pos[1] < m:
                             if self.data[new_pos[0]][new_pos[1]] == ".":
-                                graph[pos].append(((new_pos), diagonal_cost))
+                                neighbors.append(((new_pos), diagonal_cost))
+                graph[i][j] = neighbors
         return graph
 
     def add_route(self, route, color):

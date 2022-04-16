@@ -8,6 +8,12 @@ def start(ctx, algorithm, input_file, start_x, start_y, end_x, end_y):
 
 
 @task
+def benchmark(ctx, algorithm, scenario):
+    ctx.run(
+        f"python3 src/index.py benchmark {algorithm} {scenario}")
+
+
+@task
 def test(ctx):
     ctx.run("pytest src")
 

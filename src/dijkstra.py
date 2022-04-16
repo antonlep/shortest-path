@@ -11,22 +11,27 @@ class Dijkstra(Distance):
         """Calculates shortest distance with Dijkstra algorithm.
 
         Args:
-            graph: Dictionary which includes neighboring nodes and their cost
-                   {(x,y): [((x2,y2), 1)]}
+            graph: 2D-list which includes neighboring nodes and their cost
             start: Tuple with x, y coordinates of start point
             end: Tuple with x, y coordinates of end point
 
         Returns:
             Tuple of shortest distance (float), shortest route (list) and visited nodes (list)
         """
-        if start not in graph or end not in graph:
+        if not graph:
+            return -1, [], []
+        n = len(graph)
+        m = len(graph[0])
+        if (not graph or end[0] < 0 or end[0] >= m or end[1] < 0 or end[1] >= n
+                or start[0] < 0 or start[0] >= m or start[1] < 0 or start[1] >= n):
             return -1, [], []
         distance = {}
         previous = {}
         closed = {}
-        for i in graph:
-            distance[i] = self.inf
-            closed[i] = False
+        for i in range(m):
+            for j in range(n):
+                distance[(i, j)] = self.inf
+                closed[(i, j)] = False
         distance[start] = 0
         open_list = queue.PriorityQueue()
         open_list.put((0, start))
@@ -37,7 +42,7 @@ class Dijkstra(Distance):
             if closed[x]:
                 continue
             closed[x] = True
-            for neighbor, dist in graph[x]:
+            for neighbor, dist in graph[x[0]][x[1]]:
                 old = distance[neighbor]
                 new = distance[x] + dist
                 if new < old:

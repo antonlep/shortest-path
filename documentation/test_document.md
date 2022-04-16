@@ -29,10 +29,10 @@ Four reference test cases have been made with four different map files to valida
 ## Performance testing with large map
 Berlin_0_256.map file from Moving AI Lab is used as a benchmark case for comparison between algorithms ([Sturtevant, Nathan R. "Benchmarks for grid-based pathfinding." IEEE Transactions on Computational Intelligence and AI in Games 4.2 (2012): 144-148.](https://www.cs.du.edu/~sturtevant/papers/benchmarks.pdf)).
 
-| Start point | End point   | Time, Dijkstra | Time, A* | Time, JPS | Shortest distance |
-| ----------- | ----------- | ----------- | ----------- | --------- | ----------------- |
-| 79, 89       | 197, 57    | 0.182       | 0.027       | 0.082     | 145.7             |
-| 220, 21       | 150, 220    | 0.240       | 0.137       | 4.066     | 258.1             |
-| 9, 25       | 245, 251    | 0.265       | 0.258       | 4.120     | 368.9             |
+| Map          | Start point | End point   | Shortest distance | Time, Dijkstra | Time, A*  | Time, JPS | 
+| ------------ | ----------- | ----------- | ----------------- | -------------- | --------- | --------- |
+| Berlin_0_256 | 79, 89      |  197, 57    | 145.7             | 0.192          | 0.040     | 0.043     |            
+| Berlin_0_256 | 220, 21     |  150, 220   | 258.1             | 0.251          | 0.160     | 0.088     |
+| Berlin_0_256 | 9, 25       |  245, 251   | 368.9             | 0.303          | 0.236     | 0.098     |
 
-Based on calculation times, it seems that A* is faster than Dijkstra, which makes sense considering that it is supposed to be improvement to the Dijkstra algorithm, and with the help of heuristic it doesn't have to visit as many nodes than Dijkstra. At the moment JPS is slowest especially with maps with large open spaces, which is in contradiction to theory which states that it should be fastest out of these three. There are some details in current JPS implementation that can be improved, at the moment it was quickly created without paying much attention to performance. 
+Based on calculation times, it seems that A* is faster than Dijkstra, which makes sense considering that it is supposed to be improvement to the Dijkstra algorithm, and with the help of heuristic it doesn't have to visit as many nodes than Dijkstra. JPS is generally faster than A*, especially with large maps.
