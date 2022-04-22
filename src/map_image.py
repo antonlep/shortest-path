@@ -1,4 +1,3 @@
-import math
 from PIL import Image
 
 
@@ -11,13 +10,18 @@ class MapImage:
         bg_color: Background color in RGB format
     """
 
-    def __init__(self, fg_color, bg_color):
+    def __init__(self, fg_color, bg_color, visited_color,
+                 route_color, start_color, end_color, scale_factor, image_map):
         self.mode = 'RGB'
         self.fg_color = fg_color
         self.bg_color = bg_color
-        self.size = 0
-        self.image = None
-        self.data = []
+        self.visited_color = visited_color
+        self.route_color = route_color
+        self.start_color = start_color
+        self.end_color = end_color
+        self.scale_factor = scale_factor
+        self.image, self.data, self.size = self.import_map(image_map)
+        self.name = image_map[:-4]
 
     def import_map(self, i_map):
         """Imports map file and converts it to image format and to list.
@@ -26,10 +30,10 @@ class MapImage:
             i_map: Name of a map file.
         """
         with open(i_map, encoding="utf-8") as fil:
-            self.size = len(fil.readlines())
-        self.size -= 4
+            size = len(fil.readlines())
+        size -= 4
 
-        self.image = Image.new(self.mode, (self.size, self.size))
+        image = Image.new(self.mode, (size, size))
 
         data = []
         with open(i_map, encoding="utf-8") as fil:
@@ -40,57 +44,37 @@ class MapImage:
                 row = []
                 for y, symbol in enumerate(line):
                     if symbol == ".":
-                        self.image.putpixel((y, x), self.bg_color)
+                        image.putpixel((y, x), self.bg_color)
                         row.append(symbol)
                     elif symbol == "@":
-                        self.image.putpixel((y, x), self.fg_color)
+                        image.putpixel((y, x), self.fg_color)
                         row.append(symbol)
                 data.append(row)
 
-        self.data = list(map(list, zip(*data)))
+        data = list(map(list, zip(*data)))
+        return image, data, size
 
-    def create_graph(self):
-        """Converts image file to graph.
-
-        Returns:
-            Graph as dictionary which includes neighboring nodes and their cost
-            {(x,y): [((x2,y2), 1)]}
-        """
-        straight_cost = 1
-        diagonal_cost = math.sqrt(2)
-        n = len(self.data)
-        m = len(self.data[0])
-        graph = [[[]]*m for _ in range(n)]
-        moves_straight = [(-1, 0), (0, -1), (0, 1), (1, 0)]
-        moves_diagonal = [(-1, -1), (-1, 1), (1, -1), (1, 1)]
-        for i in range(n):
-            for j in range(m):
-                neighbors = []
-                if self.data[i][j] == ".":
-                    for move in moves_straight:
-                        new_pos = (i + move[0], j + move[1])
-                        if 0 <= new_pos[0] < n and 0 <= new_pos[1] < m:
-                            if self.data[new_pos[0]][new_pos[1]] == ".":
-                                neighbors.append(((new_pos), straight_cost))
-                    for move in moves_diagonal:
-                        new_pos = (i + move[0], j + move[1])
-                        if 0 <= new_pos[0] < n and 0 <= new_pos[1] < m:
-                            if self.data[new_pos[0]][new_pos[1]] == ".":
-                                neighbors.append(((new_pos), diagonal_cost))
-                graph[i][j] = neighbors
-        return graph
-
-    def add_route(self, route, color):
+    def add_route(self, route, input_type):
         """Adds nodes in a route to image file.
 
         Args:
             route: List of nodes.
             color: Color in RGB format.
         """
-        for i in route:
-            self.image.putpixel((i[0], i[1]), color)
+        if input_type == "route":
+            for i in route:
+                self.image.putpixel((i[0], i[1]), self.route_color)
+        elif input_type == "visited":
+            for i in route:
+                self.image.putpixel((i[0], i[1]), self.visited_color)
+        elif input_type == "start":
+            for i in route:
+                self.image.putpixel((i[0], i[1]), self.start_color)
+        elif input_type == "end":
+            for i in route:
+                self.image.putpixel((i[0], i[1]), self.end_color)
 
-    def save(self, name, scale=1):
+    def save(self, name):
         """Saves image as png file.
 
         Args:
@@ -98,5 +82,17 @@ class MapImage:
             name: Output file name.
         """
         image = self.image.resize(
-            (scale*self.size, scale*self.size), resample=0)
+            (self.scale_factor*self.size, self.scale_factor*self.size), resample=0)
         image.save(name + '.png')
+
+    def save_images(self, algorithm, route, visited):
+        self.save(self.name + "_original")
+        if algorithm == "jps":
+            self.add_route(route, "route")
+            self.add_route(visited, "visited")
+        else:
+            self.add_route(visited, "visited")
+            self.add_route(route, "route")
+        self.add_route([route[-1]], "start")
+        self.add_route([route[0]], "end")
+        self.save(self.name + f"_{algorithm.name}")

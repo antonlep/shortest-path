@@ -34,6 +34,17 @@ class TestJPS(unittest.TestCase):
                              ((2, 2), 1), ((2, 1), diag)]
         self.graph2[2][2] = [((2, 1), 1), ((1, 2), 1)]
 
+        self.graph3 = [[[]]*6 for _ in range(6)]
+        self.graph3[0][0] = [((1, 1), diag)]
+        self.graph3[1][1] = [((0, 0), diag), ((2, 2), diag)]
+        self.graph3[2][2] = [((1, 1), diag), ((3, 2), 1)]
+        self.graph3[3][2] = [((2, 2), 1), ((4, 2), 1)]
+        self.graph3[4][2] = [((3, 2), 1), ((5, 2), 1)]
+        self.graph3[5][2] = [((4, 2), 1)]
+        self.graph3[2][3] = [((2, 2), 1), ((2, 4), 1)]
+        self.graph3[2][4] = [((2, 3), 1), ((2, 5), 1)]
+        self.graph3[2][5] = [((2, 4), 1)]
+
         self.empty_graph = []
 
     def test_empty_graph(self):
@@ -184,3 +195,21 @@ class TestJPS(unittest.TestCase):
         direction = (1, 0)
         forced = alg.forced_neighbor(self.graph1, node, direction)
         self.assertEqual(forced, True)
+
+    def test_jump1(self):
+        alg = JPS()
+        node = (0, 0)
+        direction = (1, 1)
+        start = (0, 0)
+        end = (5, 2)
+        j = alg.jump(self.graph3, node, direction, start, end)
+        self.assertEqual(j, (2, 2))
+
+    def test_jump2(self):
+        alg = JPS()
+        node = (0, 0)
+        direction = (1, 1)
+        start = (0, 0)
+        end = (2, 5)
+        j = alg.jump(self.graph3, node, direction, start, end)
+        self.assertEqual(j, (2, 2))
