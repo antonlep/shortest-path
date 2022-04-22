@@ -21,7 +21,7 @@ def main():
                      "data/" + image_map + ".map")
     graph = Graph(image)
     if benchmark:
-        algorithm.run_benchmark(graph, image)
+        algorithm.run_benchmark(graph, image.name)
     else:
         shortest_distance, route, visited, el_time = algorithm.calculate_distance(
             graph, start, end)

@@ -2,6 +2,12 @@ import math
 
 
 class Graph:
+    """Class that converts map file from image to graph format.
+
+    Args:
+        image: MapImage object to be converted.
+    """
+
     def __init__(self, image):
         self.graph = self.create_graph(image)
 
@@ -9,8 +15,7 @@ class Graph:
         """Converts image file to graph.
 
         Returns:
-            Graph as dictionary which includes neighboring nodes and their cost
-            {(x,y): [((x2,y2), 1)]}
+            Graph as 2D list which includes neighboring nodes and their cost
         """
         straight_cost = 1
         diagonal_cost = math.sqrt(2)

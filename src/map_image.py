@@ -8,6 +8,12 @@ class MapImage:
     Args:
         fg_color: Obstacle color in RGB format
         bg_color: Background color in RGB format
+        visited_color: Visited nodes color in RGB format
+        route_color: Route color in RGB format
+        start_color: Start point color in RGB format
+        end_color: End point color in RGB format
+        scale_factor: For scaling up output image
+        image_map: Map name to import
     """
 
     def __init__(self, fg_color, bg_color, visited_color,
@@ -59,7 +65,7 @@ class MapImage:
 
         Args:
             route: List of nodes.
-            color: Color in RGB format.
+            input_type: Node type ("route" | "visited" | "start" | "end")
         """
         if input_type == "route":
             for i in route:
@@ -78,7 +84,6 @@ class MapImage:
         """Saves image as png file.
 
         Args:
-            scale: Output image scaling size.
             name: Output file name.
         """
         image = self.image.resize(
@@ -86,6 +91,13 @@ class MapImage:
         image.save(name + '.png')
 
     def save_images(self, algorithm, route, visited):
+        """Adds route, start point and end points to image and saves it.
+
+        Args:
+            algorithm: Algorithm object.
+            route: List of nodes in shortest path.
+            visited: List of visited nodes.
+        """
         self.save(self.name + "_original")
         if algorithm.name == "jps":
             self.add_route(route, "route")
