@@ -87,7 +87,7 @@ class MapImage:
 
     def save_images(self, algorithm, route, visited):
         self.save(self.name + "_original")
-        if algorithm == "jps":
+        if algorithm.name == "jps":
             self.add_route(route, "route")
             self.add_route(visited, "visited")
         else:

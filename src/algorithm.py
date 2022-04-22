@@ -16,6 +16,7 @@ class Algorithm:
 
     def calculate_distance(self, graph, start, end):
         start_time = time.time()
+        print(graph.graph)
         shortest_distance, route, visited = self.algorithm.calculate_distance(
             graph.graph, start, end)
         end_time = time.time()
