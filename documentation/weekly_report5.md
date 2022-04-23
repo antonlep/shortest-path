@@ -16,6 +16,7 @@
 * Clean up JPS algorithm and look for possible improvements. At the moment code is quite complicated. 
 * More comprehensive unit tests.
 * Analyze more benchmark cases and compare calculation speeds more thoroughly.
+* Create UML diagram of program structure.
 * Possibly create a simple command line user interface.
 
 ## Time used
