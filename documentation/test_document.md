@@ -1,7 +1,7 @@
 # Test document
 ## Unit testing
 Each class is separately tested with Python unittest framework.
-![coverage](https://user-images.githubusercontent.com/76871257/162572972-7839da38-b157-4e79-a766-0d2b70b6b6eb.png)
+![coverage](https://user-images.githubusercontent.com/76871257/164908658-851ff4bb-d1b6-415e-b946-221e60697192.PNG)
 
 https://app.codecov.io/gh/antonlep/shortest-path.
 
