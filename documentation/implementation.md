@@ -8,7 +8,7 @@ Distance calculation algorithms are implemented with template method pattern. Di
 ### Algorithm
 Distance calculation algorithms are implemented with template method pattern. Algorithm class is superclass, which includes basic methods for creating shortest route and visited nodes, and skeleton methods for distance calculation and heuristic. Includes method also for running benchmark cases.
 ### Dijkstra, AStar and JPS 
-These subclasses inherit the Distance class and overwrite its distance calculation method. Dijkstra and A* algorithm implementations are based on Tietorakenteet ja Algoritmit book and Wikipedia articles. JPS (jump point search) algorithm is based on Harabor and Grastien article.
+These subclasses inherit the Distance class and overwrite its distance calculation method.
 ### Graph
 Class that includes methods for graph manipulation and is used to convert map file to graph file format.
 ### Input parser
@@ -16,7 +16,10 @@ Class for parsing command line arguments.
 
 ## Algorithm implementations
 
+Dijkstra and A* algorithm implementations are based on Tietorakenteet ja Algoritmit book and Wikipedia articles. JPS (jump point search) algorithm is based on Harabor and Grastien article.
+
 ### Dijkstra
+
 
 ## Sources
 [Laaksonen, Antti "Tietorakenteet ja algoritmit" (2021)](https://github.com/hy-tira/tirakirja/raw/master/tirakirja.pdf)
