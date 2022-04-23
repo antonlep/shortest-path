@@ -46,6 +46,14 @@ Berlin_0_256: map file name (located in src/data folder)
 
 Picture with shortest route and visited nodes is saved as .png file to src/data/
 
+### Calculate benchmark case
+
+`poetry run invoke benchmark dijkstra Berlin_0_256`
+
+dijkstra: shortest path algorithm (dijkstra | a_star | jps)
+
+Berlin_0_256: map.scen file name (located in src/data folder)
+
 ### Run tests
 
 `poetry run invoke test`
