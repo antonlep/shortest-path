@@ -14,7 +14,9 @@ Class that includes methods for graph manipulation and is used to convert map fi
 ### Input parser
 Class for parsing command line arguments.
 
-## Algorithms
+## Algorithm implementations
+
+### Dijkstra
 
 ## Sources
 [Laaksonen, Antti "Tietorakenteet ja algoritmit" (2021)](https://github.com/hy-tira/tirakirja/raw/master/tirakirja.pdf)
