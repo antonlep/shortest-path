@@ -1,6 +1,6 @@
  Week 5
 ## Things done this week
-<!-- * JPS algorithm corrected, there were issues with neighbor checking. These modifications improved calculation time significantly.
+* JPS algorithm corrected, there were issues with neighbor checking. These modifications improved calculation time significantly.
 * More unit tests added for JPS and for other classes.
 * Initial performance comparison with large map.
 * Test document update.
