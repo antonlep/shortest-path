@@ -1,4 +1,5 @@
 from PIL import Image
+from jps import JPS
 
 
 class MapImage:
@@ -27,7 +28,7 @@ class MapImage:
         self.end_color = end_color
         self.scale_factor = scale_factor
         self.image, self.data, self.size = self.import_map(image_map)
-        self.name = image_map[:-4]
+        self.name = image_map.replace('/', '.').split('.')[1]
 
     def import_map(self, i_map):
         """Imports map file and converts it to image format and to list.
@@ -98,8 +99,8 @@ class MapImage:
             route: List of nodes in shortest path.
             visited: List of visited nodes.
         """
-        self.save(self.name + "_original")
-        if algorithm.name == "jps":
+        self.save("data/" + self.name + "_original")
+        if isinstance(algorithm, JPS):
             self.add_route(route, "route")
             self.add_route(visited, "visited")
         else:
@@ -107,4 +108,4 @@ class MapImage:
             self.add_route(route, "route")
         self.add_route([route[-1]], "start")
         self.add_route([route[0]], "end")
-        self.save(self.name + f"_{algorithm.name}")
+        self.save("data/" + self.name + f"_{type(algorithm).__name__}")

@@ -1,8 +1,8 @@
 import queue
-from distance import Distance
+from algorithm import Algorithm
 
 
-class Dijkstra(Distance):
+class Dijkstra(Algorithm):
     """Class that calculates shortest distance with Dijkstra algorithm.
 
     """

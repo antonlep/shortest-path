@@ -28,19 +28,10 @@ class TestAlgorithm(unittest.TestCase):
                             ((2, 2), 1), ((2, 1), diag)]
         self.graph[2][2] = [((2, 1), 1), ((1, 2), 1)]
 
-    def test_select_algorithm(self):
-        alg1 = Algorithm("dijkstra")
-        alg2 = Algorithm("a_star")
-        alg3 = Algorithm("jps")
-        self.assertEqual("dijkstra", alg1.name)
-        self.assertEqual("a_star", alg2.name)
-        self.assertEqual("jps", alg3.name)
-
-    def test_calculate_distance(self):
-        alg = Algorithm("dijkstra")
+    def test_default_behavior(self):
+        dist = Algorithm()
         start = (0, 0)
-        end = (2, 2)
-        graph = MockGraph(self.graph)
-        distance, route, visited, time = alg.calculate_distance(
-            graph, start, end)
-        self.assertAlmostEqual(distance, 2 + math.sqrt(2))
+        end = (1, 1)
+        graph = {}
+        self.assertEqual(dist.heuristic(start, end), None)
+        self.assertEqual(dist.calculate_distance(graph, start, end), None)

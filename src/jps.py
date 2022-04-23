@@ -1,9 +1,9 @@
 import queue
 import math
-from distance import Distance
+from algorithm import Algorithm
 
 
-class JPS(Distance):
+class JPS(Algorithm):
     """Class that calculates shortest distance with JPS algorithm.
 
     """

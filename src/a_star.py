@@ -1,9 +1,9 @@
 import queue
 import math
-from distance import Distance
+from algorithm import Algorithm
 
 
-class AStar(Distance):
+class AStar(Algorithm):
     """Class that calculates shortest distance with A* algorithm.
 
     """
