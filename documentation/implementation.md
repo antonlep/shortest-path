@@ -1,12 +1,21 @@
 # Implementation
 ## Program structure
-Program is divided into five classes, and main executable file main.py. Short description of classes:
+Program is divided into seven classes, and main executable file index.py. Short description of classes:
 ### MapImage
-MapImage includes operations for creating MapImage object from input text file, coverting it to graph format, adding routes and points to the image and saving the image to disk. Python Imaging Library (pillow) is used for image operations.
+MapImage includes operations for creating MapImage object from input text file, adding routes and points to the image and saving the image to disk. Python Imaging Library (pillow) is used for image operations.
 ### Distance
 Distance calculation algorithms are implemented with template method pattern. Distance class is superclass, which includes basic methods for creating shortest route and visited nodes, and skeleton methods for distance calculation and heuristic.
+### Algorithm
+Distance calculation algorithms are implemented with template method pattern. Algorithm class is superclass, which includes basic methods for creating shortest route and visited nodes, and skeleton methods for distance calculation and heuristic. Includes method also for running benchmark cases.
 ### Dijkstra, AStar and JPS 
 These subclasses inherit the Distance class and overwrite its distance calculation method. Dijkstra and A* algorithm implementations are based on Tietorakenteet ja Algoritmit book and Wikipedia articles. JPS (jump point search) algorithm is based on Harabor and Grastien article.
+### Graph
+Class that includes methods for graph manipulation and is used to convert map file to graph file format.
+### Input parser
+Class for parsing command line arguments.
+
+## Algorithms
+
 ## Sources
 [Laaksonen, Antti "Tietorakenteet ja algoritmit" (2021)](https://github.com/hy-tira/tirakirja/raw/master/tirakirja.pdf)
 
