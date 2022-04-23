@@ -1,14 +1,16 @@
- Week 5
+# Week 5
 ## Things done this week
 * JPS algorithm corrected, there were issues with neighbor checking. These modifications improved calculation time significantly.
 * More unit tests added for JPS and for other classes.
-* Initial performance comparison with large map.
-* Test document update.
-* Start to write implementation document.
-
-
+* Checks for command line arguments added.
+* Code refactoring to clean up index.py file and divide the content into separate classes.
+* Benchmark calculation functionality added.
+* Benchamrk cases calculated with two maps and three algorithms.
+* Test document and implementation document update.
+* Peer review made.
+* 
 ## Problems
-* JPS algorithm is too slow at the moment, probably related to how neighbor nodes are currently checked as there are quite many checks to see if specific element is in a list.
+* No bigger issues at the moment.
 
 ## Plans for next week
 * Improve JPS algorithm speed (first change how neighbor nodes are checked)
@@ -17,4 +19,4 @@
 * Clean up index.py file
 
 ## Time used
-15 h
+20 h
