@@ -8,7 +8,7 @@
 * Benchamrk cases calculated with two maps and three algorithms.
 * Test document and implementation document update.
 * Peer review made.
-* 
+
 ## Problems
 * No bigger issues at the moment.
 
