@@ -18,7 +18,7 @@ Class for parsing command line arguments.
 Dijkstra and A* algorithm implementations are based on Tietorakenteet ja Algoritmit book and Wikipedia articles. JPS (jump point search) algorithm is based on Harabor and Grastien article. 2D grid is modelled as graph (python list of lists) where each node includes neighboring nodes and their distance (1 to horizontal and vertical direction, sqrt(2) to diagonal direction).
 
 ### Dijkstra
-ALgorithm uses python PriorityQueue for storing nodes to be calculated. Nodes are arranged based on their distance from start point, so that the nodes with shortest distance from start are gone through first.
+Algorithm uses python PriorityQueue for storing nodes to be calculated. Nodes are arranged based on their distance from start point, so that nodes with shortest distance from start are gone through first.
 
 ### A*
 ALgorithm is almost the same as Dijkstra, except heuristic function is included. Order in which nodes are to be calculated is based on the sum of distance from start to the current node and estimated distance from current node to the end (calculated with euclidean distance). Nodes with shortest total estimated distance are to be calculated first.
