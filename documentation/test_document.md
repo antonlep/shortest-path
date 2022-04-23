@@ -29,6 +29,10 @@ Four reference test cases have been made with four different map files to valida
 ## Performance testing with large map
 Berlin_0_256.map and Berlin_1_1024.map files from Moving AI Lab are used as a benchmark case for comparison between algorithms ([Sturtevant, Nathan R. "Benchmarks for grid-based pathfinding." IEEE Transactions on Computational Intelligence and AI in Games 4.2 (2012): 144-148.](https://www.cs.du.edu/~sturtevant/papers/benchmarks.pdf)).
 
+![berlin_0_256](https://user-images.githubusercontent.com/76871257/164909280-3e03fe10-eda4-4a6b-befe-e94341b60533.PNG)
+
+![berlin_1_1024](https://user-images.githubusercontent.com/76871257/164909284-07dc1702-0f8d-40d9-a6b8-9c6c88a96ea8.PNG)
+
 | Map           | Number of cases | Time, Dijkstra | Time, A*  | Time, JPS |
 | ------------- | --------------- | -------------- | --------- | --------- |
 | Berlin_0_256  | 930             | 159.73 s       | 75.38 s   | 48.40 s   |           
