@@ -207,49 +207,62 @@ class JPS(Algorithm):
         Returns:
             True if node has forced neighbors, False otherwise
         """
-        if d[0] == 0:
+        if d == (0, 1):
             if (self.is_blocked(graph, node, (1, 0))
-                    and not self.is_blocked(graph, node, (1, d[1]))):
+                    and not self.is_blocked(graph, node, (1, 1))):
                 return True
             if (self.is_blocked(graph, node, (-1, 0))
-                    and not self.is_blocked(graph, node, (-1, d[1]))):
+                    and not self.is_blocked(graph, node, (-1, 1))):
                 return True
-        elif d[1] == 0:
+        elif d == (0, -1):
+            if (self.is_blocked(graph, node, (1, 0))
+                    and not self.is_blocked(graph, node, (1, -1))):
+                return True
+            if (self.is_blocked(graph, node, (-1, 0))
+                    and not self.is_blocked(graph, node, (-1, -1))):
+                return True
+        elif d == (1, 0):
             if (self.is_blocked(graph, node, (0, 1))
-                    and not self.is_blocked(graph, node, (d[0], 1))):
+                    and not self.is_blocked(graph, node, (1, 1))):
                 return True
             if (self.is_blocked(graph, node, (0, -1))
-                    and not self.is_blocked(graph, node, (d[0], -1))):
+                    and not self.is_blocked(graph, node, (1, -1))):
                 return True
-        else:
-            if d == (-1, -1):
-                if (self.is_blocked(graph, node, (0, 1))
-                        and not self.is_blocked(graph, node, (-1, 1))):
-                    return True
-                if (self.is_blocked(graph, node, (1, 0))
-                        and not self.is_blocked(graph, node, (1, -1))):
-                    return True
-            elif d == (-1, 1):
-                if (self.is_blocked(graph, node, (0, -1))
-                        and not self.is_blocked(graph, node, (-1, -1))):
-                    return True
-                if (self.is_blocked(graph, node, (1, 0))
-                        and not self.is_blocked(graph, node, (1, 1))):
-                    return True
-            elif d == (1, 1):
-                if (self.is_blocked(graph, node, (-1, 0))
-                        and not self.is_blocked(graph, node, (-1, 1))):
-                    return True
-                if (self.is_blocked(graph, node, (0, -1))
-                        and not self.is_blocked(graph, node, (1, -1))):
-                    return True
-            elif d == (1, -1):
-                if (self.is_blocked(graph, node, (0, 1))
-                        and not self.is_blocked(graph, node, (1, 1))):
-                    return True
-                if (self.is_blocked(graph, node, (-1, 0))
-                        and not self.is_blocked(graph, node, (-1, -1))):
-                    return True
+        elif d == (-1, 0):
+            if (self.is_blocked(graph, node, (0, 1))
+                    and not self.is_blocked(graph, node, (1, 1))):
+                return True
+            if (self.is_blocked(graph, node, (0, -1))
+                    and not self.is_blocked(graph, node, (1, -1))):
+                return True
+        elif d == (-1, -1):
+            if (self.is_blocked(graph, node, (0, 1))
+                    and not self.is_blocked(graph, node, (-1, 1))):
+                return True
+            if (self.is_blocked(graph, node, (1, 0))
+                    and not self.is_blocked(graph, node, (1, -1))):
+                return True
+        elif d == (-1, 1):
+            if (self.is_blocked(graph, node, (0, -1))
+                    and not self.is_blocked(graph, node, (-1, -1))):
+                return True
+            if (self.is_blocked(graph, node, (1, 0))
+                    and not self.is_blocked(graph, node, (1, 1))):
+                return True
+        elif d == (1, 1):
+            if (self.is_blocked(graph, node, (-1, 0))
+                    and not self.is_blocked(graph, node, (-1, 1))):
+                return True
+            if (self.is_blocked(graph, node, (0, -1))
+                    and not self.is_blocked(graph, node, (1, -1))):
+                return True
+        elif d == (1, -1):
+            if (self.is_blocked(graph, node, (0, 1))
+                    and not self.is_blocked(graph, node, (1, 1))):
+                return True
+            if (self.is_blocked(graph, node, (-1, 0))
+                    and not self.is_blocked(graph, node, (-1, -1))):
+                return True
         return False
 
     def heuristic(self, node, end):
