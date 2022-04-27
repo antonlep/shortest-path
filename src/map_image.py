@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image, ImageShow
 from jps import JPS
 
 
@@ -113,6 +113,4 @@ class MapImage:
     def show_image(self, algorithm):
         """Display image in separate window.
         """
-        im = Image.open("data/" + self.name +
-                        f"_{type(algorithm).__name__}.png")
-        im.show()
+        ImageShow.show(self.image)
