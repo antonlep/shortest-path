@@ -54,8 +54,8 @@ class JPS(Algorithm):
                 natural_neighbors = self.prune(
                     graph, previous[x], x)
             for neighbor in natural_neighbors:
-                direction = (neighbor[0] - x[0], neighbor[1] - x[1])
-                n = self.jump(graph, x, direction, start, end)
+                d = (neighbor[0] - x[0], neighbor[1] - x[1])
+                n = self.jump(graph, x, d, start, end)
                 if n is not None:
                     successors.append(n)
             for successor in successors:
@@ -84,110 +84,95 @@ class JPS(Algorithm):
             List of nodes, from which unneccessary nodes have been removed
         """
         new_neighbors = []
-        direction = (node[0] - parent[0], node[1] - parent[1])
-        if direction[0] >= 1:
-            direction = (1, direction[1])
-        elif direction[0] <= -1:
-            direction = (-1, direction[1])
-        if direction[1] >= 1:
-            direction = (direction[0], 1)
-        elif direction[1] <= -1:
-            direction = (direction[0], -1)
-        if not self.is_blocked(graph, node, direction):
+        d = (node[0] - parent[0], node[1] - parent[1])
+        if d[0] >= 1:
+            d = (1, d[1])
+        elif d[0] <= -1:
+            d = (-1, d[1])
+        if d[1] >= 1:
+            d = (d[0], 1)
+        elif d[1] <= -1:
+            d = (d[0], -1)
+        if not self.is_blocked(graph, node, d):
             new_neighbors.append(
-                (node[0] + direction[0], node[1] + direction[1]))
-        if direction[0] == 0:
+                (node[0] + d[0], node[1] + d[1]))
+        if d[0] == 0:
             if (self.is_blocked(graph, node, (1, 0))
-                    and not self.is_blocked(graph, node, (1, direction[1]))):
+                    and not self.is_blocked(graph, node, (1, d[1]))):
                 new_neighbors.append(
-                    (node[0] + 1, node[1] + direction[1]))
+                    (node[0] + 1, node[1] + d[1]))
             if (self.is_blocked(graph, node, (-1, 0))
-                    and not self.is_blocked(graph, node, (-1, direction[1]))):
+                    and not self.is_blocked(graph, node, (-1, d[1]))):
                 new_neighbors.append(
-                    (node[0] - 1, node[1] + direction[1]))
-        elif direction[1] == 0:
+                    (node[0] - 1, node[1] + d[1]))
+        elif d[1] == 0:
             if (self.is_blocked(graph, node, (0, 1))
-                    and not self.is_blocked(graph, node, (direction[0], 1))):
+                    and not self.is_blocked(graph, node, (d[0], 1))):
                 new_neighbors.append(
-                    (node[0] + direction[0], node[1] + 1))
+                    (node[0] + d[0], node[1] + 1))
             if (self.is_blocked(graph, node, (0, -1))
-                    and not self.is_blocked(graph, node, (direction[0], -1))):
+                    and not self.is_blocked(graph, node, (d[0], -1))):
                 new_neighbors.append(
-                    (node[0] + direction[0], node[1] - 1))
+                    (node[0] + d[0], node[1] - 1))
         else:
-            if not self.is_blocked(graph, node, (0, direction[1])):
-                new_neighbors.append((node[0], node[1] + direction[1]))
-            if not self.is_blocked(graph, node, (direction[0], 0)):
-                new_neighbors.append((node[0] + direction[0], node[1]))
-            if direction == (-1, -1):
-                if (self.is_blocked(graph, node, (0, 1))
-                        and not self.is_blocked(graph, node, (-1, 1))):
-                    new_neighbors.append((node[0] - 1, node[1] + 1))
-                if (self.is_blocked(graph, node, (1, 0))
-                        and not self.is_blocked(graph, node, (1, -1))):
-                    new_neighbors.append((node[0] + 1, node[1] - 1))
-            elif direction == (-1, 1):
-                if (self.is_blocked(graph, node, (0, -1))
-                        and not self.is_blocked(graph, node, (-1, -1))):
-                    new_neighbors.append((node[0] - 1, node[1] - 1))
-                if (self.is_blocked(graph, node, (1, 0))
-                        and not self.is_blocked(graph, node, (1, 1))):
-                    new_neighbors.append((node[0] + 1, node[1] + 1))
-            elif direction == (1, 1):
-                if (self.is_blocked(graph, node, (0, -1))
-                        and not self.is_blocked(graph, node, (1, -1))):
-                    new_neighbors.append((node[0] + 1, node[1] - 1))
-                if (self.is_blocked(graph, node, (-1, 0))
-                        and not self.is_blocked(graph, node, (-1, 1))):
-                    new_neighbors.append((node[0] - 1, node[1] + 1))
-            elif direction == (1, -1):
-                if (self.is_blocked(graph, node, (-1, 0))
-                        and not self.is_blocked(graph, node, (-1, -1))):
-                    new_neighbors.append((node[0] - 1, node[1] - 1))
-                if (self.is_blocked(graph, node, (0, 1))
-                        and not self.is_blocked(graph, node, (1, 1))):
-                    new_neighbors.append((node[0] + 1, node[1] + 1))
+            if not self.is_blocked(graph, node, (0, d[1])):
+                new_neighbors.append((node[0], node[1] + d[1]))
+            if not self.is_blocked(graph, node, (d[0], 0)):
+                new_neighbors.append((node[0] + d[0], node[1]))
+            if ((not self.is_blocked(graph, node, (0, d[1]))
+                    or not self.is_blocked(graph, node, (d[0], 0)))
+                    and not self.is_blocked(graph, node, d)):
+                new_neighbors.append(
+                    (node[0]+d[0], node[1] + d[1]))
+            if (self.is_blocked(graph, node, (-d[0], 0))
+                    and not self.is_blocked(graph, node, (0, d[1]))):
+                new_neighbors.append(
+                    (node[0] - d[0], node[1] + d[1]))
+            if (self.is_blocked(graph, node, (0, -d[1]))
+                    and not self.is_blocked(graph, node, (d[0], 0))):
+                new_neighbors.append(
+                    (node[0] + d[0], node[1] - d[1]))
         return new_neighbors
 
-    def jump(self, graph, node, direction, start, goal):
-        """Calculates if there is jump point in defined direction.
+    def jump(self, graph, node, d, start, goal):
+        """Calculates if there is jump point in defined d.
 
         Args:
             graph: 2D-list which includes neighboring nodes and their cost
             node: Current node
-            direction: Move direction
+            d: Move d
             start: Tuple with x, y coordinates of start point
             goal: Tuple with x, y coordinates of end point
 
         Returns:
             Jump point node if it exists, otherwise None
         """
-        n = (node[0] + direction[0], node[1] + direction[1])
-        if self.is_blocked(graph, node, direction):
+        n = (node[0] + d[0], node[1] + d[1])
+        if self.is_blocked(graph, node, d):
             return None
         if n == goal:
             return n
-        if self.forced_neighbor(graph, n, direction):
+        if self.forced_neighbor(graph, n, d):
             return n
-        if direction[0] != 0 and direction[1] != 0:
-            if self.jump(graph, n, (direction[0], 0), start, goal) is not None:
+        if d[0] != 0 and d[1] != 0:
+            if self.jump(graph, n, (d[0], 0), start, goal) is not None:
                 return n
-            if self.jump(graph, n, (0, direction[1]), start, goal) is not None:
+            if self.jump(graph, n, (0, d[1]), start, goal) is not None:
                 return n
-        return self.jump(graph, n, direction, start, goal)
+        return self.jump(graph, n, d, start, goal)
 
-    def is_blocked(self, graph, node, direction):
+    def is_blocked(self, graph, node, d):
         """Checks if node neighbor in specified direction is wall or outside of bounds.
 
         Args:
             graph: 2D-list which includes neighboring nodes and their cost
             node: Current node
-            direction: Move direction
+            d: Move direction
 
         Returns:
             True if blocked, False otherwise
         """
-        new_pos = (node[0] + direction[0], node[1] + direction[1])
+        new_pos = (node[0] + d[0], node[1] + d[1])
         if new_pos[0] < 0 or new_pos[0] >= len(graph[0]):
             return True
         if new_pos[1] < 0 or new_pos[1] >= len(graph):
@@ -196,60 +181,37 @@ class JPS(Algorithm):
             return True
         return False
 
-    def forced_neighbor(self, graph, node, direction):
+    def forced_neighbor(self, graph, node, d):
         """Checks if node has forced neighbors according to JPS algorithm definition.
 
         Args:
             graph: 2D-list which includes neighboring nodes and their cost
             node: Current node
-            direction: Move direction
+            d: Move direction
 
         Returns:
             True if node has forced neighbors, False otherwise
         """
-        if direction[0] == 0:
+        if d[0] == 0:
             if (self.is_blocked(graph, node, (1, 0))
-                    and not self.is_blocked(graph, node, (1, direction[1]))):
+                    and not self.is_blocked(graph, node, (1, d[1]))):
                 return True
             if (self.is_blocked(graph, node, (-1, 0))
-                    and not self.is_blocked(graph, node, (-1, direction[1]))):
+                    and not self.is_blocked(graph, node, (-1, d[1]))):
                 return True
-        elif direction[1] == 0:
+        elif d[1] == 0:
             if (self.is_blocked(graph, node, (0, 1))
-                    and not self.is_blocked(graph, node, (direction[0], 1))):
+                    and not self.is_blocked(graph, node, (d[0], 1))):
                 return True
             if (self.is_blocked(graph, node, (0, -1))
-                    and not self.is_blocked(graph, node, (direction[0], -1))):
+                    and not self.is_blocked(graph, node, (d[0], -1))):
                 return True
         else:
-            if direction == (-1, -1):
-                if (self.is_blocked(graph, node, (0, 1))
-                        and not self.is_blocked(graph, node, (-1, 1))):
-                    return True
-                if (self.is_blocked(graph, node, (1, 0))
-                        and not self.is_blocked(graph, node, (1, -1))):
-                    return True
-            elif direction == (-1, 1):
-                if (self.is_blocked(graph, node, (0, -1))
-                        and not self.is_blocked(graph, node, (-1, -1))):
-                    return True
-                if (self.is_blocked(graph, node, (1, 0))
-                        and not self.is_blocked(graph, node, (1, 1))):
-                    return True
-            elif direction == (1, 1):
-                if (self.is_blocked(graph, node, (-1, 0))
-                        and not self.is_blocked(graph, node, (-1, 1))):
-                    return True
-                if (self.is_blocked(graph, node, (0, -1))
-                        and not self.is_blocked(graph, node, (1, -1))):
-                    return True
-            elif direction == (1, -1):
-                if (self.is_blocked(graph, node, (0, 1))
-                        and not self.is_blocked(graph, node, (1, 1))):
-                    return True
-                if (self.is_blocked(graph, node, (-1, 0))
-                        and not self.is_blocked(graph, node, (-1, -1))):
-                    return True
+            if (not self.is_blocked(graph, node, (-d[0], d[1]))
+                and self.is_blocked(graph, node, (-d[0], 0))
+                or not self.is_blocked(graph, node, (d[0], -d[1]))
+                    and self.is_blocked(graph, node, (0, -d[1]))):
+                return True
         return False
 
     def heuristic(self, node, end):

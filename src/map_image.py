@@ -1,7 +1,8 @@
 from PIL import Image
-from jps import JPS
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
+from jps import JPS
+
 
 class MapImage:
     """Class that has operations for importing map data,
@@ -114,6 +115,7 @@ class MapImage:
     def show_image(self, algorithm):
         """Display image in separate window.
         """
-        img=mpimg.imread("data/" + self.name + f"_{type(algorithm).__name__}.png")
-        imgplot=plt.imshow(img)
+        img = mpimg.imread("data/" + self.name +
+                           f"_{type(algorithm).__name__}.png")
+        _ = plt.imshow(img)
         plt.show()
