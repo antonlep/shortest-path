@@ -11,7 +11,7 @@ VISITED_COLOR = (200, 50, 25)
 ROUTE_COLOR = (0, 0, 0)
 START_COLOR = (255, 255, 0)
 END_COLOR = (0, 255, 0)
-SCALE_FACTOR = 1
+SCALE_FACTOR = 2
 
 
 def select_algorithm(algorithm_name):
