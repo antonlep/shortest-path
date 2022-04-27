@@ -109,3 +109,10 @@ class MapImage:
         self.add_route([route[-1]], "start")
         self.add_route([route[0]], "end")
         self.save("data/" + self.name + f"_{type(algorithm).__name__}")
+
+    def show_image(self, algorithm):
+        """Display image in separate window.
+        """
+        im = Image.open("data/" + self.name +
+                        f"_{type(algorithm).__name__}.png")
+        im.show()

@@ -78,6 +78,8 @@ class Algorithm:
             graph: Graph object to be calculated.
             image_name: Name of image to be calculated.
         """
+        total_time = 0
+        number_of_cases = 0
         with open(
             f"data/{image_name}_{type(self).__name__}_results.csv",
                 "w", encoding="utf-8") as output_file:
@@ -89,6 +91,10 @@ class Algorithm:
                     shortest_distance, _, visited, el_time = self.calculate_distance_and_time(
                         graph, (int(line[4]), int(line[5])), (int(line[6]), int(line[7])))
                     writer.writerow((shortest_distance, el_time, len(visited)))
+                    total_time += el_time
+                    number_of_cases += 1
+        print("Number of cases: ", number_of_cases)
+        print("Calculation time: ", total_time)
 
     @abstractmethod
     def calculate_distance(self, graph, start, end):

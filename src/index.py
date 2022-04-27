@@ -41,6 +41,7 @@ def main():
         print("Time used: ", el_time)
         print("Number of visited nodes/jump points: ", len(visited))
         image.save_images(algorithm, route, visited)
+        image.show_image(algorithm)
 
 
 if __name__ == "__main__":
