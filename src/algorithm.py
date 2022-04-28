@@ -1,5 +1,6 @@
 import time
 import csv
+import math
 from abc import abstractmethod
 
 
@@ -101,4 +102,13 @@ class Algorithm:
         pass
 
     def heuristic(self, node, end):
-        pass
+        """Heuristic calculation.
+
+        Args:
+            node: start node coordinates
+            end: end node coordinates
+
+        Returns:
+            Euclidean distance between start and end points.
+        """
+        return math.sqrt((node[0]-end[0])**2+(node[1]-end[1])**2)

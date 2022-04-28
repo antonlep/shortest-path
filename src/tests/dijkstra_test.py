@@ -100,10 +100,3 @@ class TestDijkstra(unittest.TestCase):
         self.assertEqual(distance, -1)
         self.assertEqual(route, [])
         self.assertEqual(visited, [])
-
-    def test_heuristic(self):
-        dijkstra = Dijkstra()
-        start = (0, 0)
-        end = (5, 5)
-        result = dijkstra.heuristic(start, end)
-        self.assertEqual(result, None)
