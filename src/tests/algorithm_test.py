@@ -35,3 +35,12 @@ class TestAlgorithm(unittest.TestCase):
         graph = {}
         self.assertAlmostEqual(dist.heuristic(start, end), math.sqrt(2))
         self.assertEqual(dist.calculate_distance(graph, start, end), None)
+
+    def test_calculate_route(self):
+        dist = Algorithm()
+        start = (0, 0)
+        end = (1, 1)
+        previous = {(1, 1): (3, 3), (3, 3): (0, 0)}
+        route = dist.calculate_route(previous, start, end)
+        self.assertEqual(
+            route, [(1, 1), (2, 2), (3, 3), (2, 2), (1, 1), (0, 0)])

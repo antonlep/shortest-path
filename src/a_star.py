@@ -69,6 +69,7 @@ class AStar(Algorithm):
                     previous[neighbor] = x
                     f_cost = new + self.heuristic(neighbor, end)
                     open_list.put((f_cost, neighbor))
+
         # If list has been gone through and no end point found, return -1.
         if distance[end] == self.inf:
             return -1, [], []
