@@ -1,5 +1,18 @@
 # Implementation
 ## Program structure
+```mermaid
+ classDiagram
+      Todo "*" --> "1" User
+      class User{
+          username
+          password
+      }
+      class Todo{
+          id
+          content
+          done
+      }
+```
 Program is divided into seven classes, and main executable file index.py. Short description of classes:
 ### MapImage
 MapImage includes operations for creating MapImage object from input text file, adding routes and points to the image and saving the image to disk. Python Imaging Library (pillow) is used for image operations.
