@@ -3,9 +3,13 @@
 ```mermaid
  classDiagram
       Main ..> InputParser
-      Main ..> Algorithm
+      Main ..> Dijkstra
+      Main ..> AStar
+      Main ..> JPS
       Main ..> MapImage
-      Algorithm ..> Graph
+      Dijkstra ..> Graph
+      AStar ..> Graph
+      JPS ..> Graph
       Graph ..> MapImage
       Algorithm --|> Dijkstra
       Algorithm --|> AStar
