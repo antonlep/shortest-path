@@ -3,9 +3,15 @@
 ```mermaid
  classDiagram
       Main ..> InputParser
+      Main ..> Algorithm
+      Main ..> MapImage
       class Main{
       }
       class InputParser{
+      }
+      class Algorithm{
+      }
+      class MapImage{
       }
 ```
 Program is divided into seven classes, and main executable file index.py. Short description of classes:
