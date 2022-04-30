@@ -6,11 +6,11 @@ Each class is separately tested with Python unittest framework.
 https://app.codecov.io/gh/antonlep/shortest-path.
 
 ### MapImage
-Map file import and graph creation is tested with two input files. Adding route to existing image is also tested. Testing of file loading from disk and saving to disk could be improved.
+Map file import and graph creation is tested with two input files. Adding route to existing image is also tested. Testing of file loading from disk and saving to disk could be improved, at the moment it is tested by actually writing files to disk.
 ### Dijkstra, AStar and JPS
 For these three classes, shortest distance, shortest route and visited nodes are tested with three input graphs and various start and end locations. JPS class has additional methods which are separately tested.
 ### Algorithm
-Algorithm class own methods are tested in case that the class is classed without using subclass. 
+Algorithm class own methods are tested in case that the class is used without using subclass. 
 ## Route testing with small map
 Four reference test cases have been made with four different map files to validate shortest path and to make sure that visited nodes are correct. In case of JPS algorithm, jump points are examined instead of visited nodes. Color codes: wall = white, unvisited floor = blue, visited floor = red, shortest route = black, start point = yellow, end point = green. 
 
@@ -32,6 +32,8 @@ Berlin_0_256.map and Berlin_1_1024.map files from Moving AI Lab are used as a be
 ![berlin_0_256](https://user-images.githubusercontent.com/76871257/164909280-3e03fe10-eda4-4a6b-befe-e94341b60533.PNG)
 
 ![berlin_1_1024](https://user-images.githubusercontent.com/76871257/164909284-07dc1702-0f8d-40d9-a6b8-9c6c88a96ea8.PNG)
+
+
 
 | Map           | Number of cases | Time, Dijkstra | Time, A*  | Time, JPS |
 | ------------- | --------------- | -------------- | --------- | --------- |
