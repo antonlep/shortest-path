@@ -5,6 +5,7 @@
       Main ..> InputParser
       Main ..> Algorithm
       Main ..> MapImage
+      Algorithm -- Graph
       class Main{
       }
       class InputParser{
@@ -12,6 +13,8 @@
       class Algorithm{
       }
       class MapImage{
+      }
+      class Graph{
       }
 ```
 Program is divided into seven classes, and main executable file index.py. Short description of classes:
