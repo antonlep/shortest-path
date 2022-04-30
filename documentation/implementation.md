@@ -7,6 +7,9 @@
       Main ..> MapImage
       Algorithm ..> Graph
       Graph ..> MapImage
+      Algorithm --|> Dijkstra
+      Algorithm --|> AStar
+      Algorithm --|> JPS
       class Main{
       }
       class InputParser{
@@ -16,6 +19,12 @@
       class MapImage{
       }
       class Graph{
+      }
+      class Dijkstra{
+      }
+      class AStar{
+      }
+      class JPS{
       }
 ```
 Program is divided into seven classes, and main executable file index.py. Short description of classes:
