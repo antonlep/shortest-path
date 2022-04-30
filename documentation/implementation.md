@@ -55,6 +55,9 @@ Algorithm is almost the same as Dijkstra, except heuristic function is included.
 ### Jump Point Search
 Algorithm is quite similar to A*. Difference is that in A* all neighbors are considered for distance calculation, but in JPS only certain nodes, so called jump points, are calculated more extensively. There is additional processing where jump points are identified based on direction and if neighbor nodes are blocked or not. This processing is done with recursive jump method, which returns jump point if it is found, and is not computationally as expensive as distance calculation. 
 
+## Performance analysis
+Theoretical performance analysis and performance comparison between actual implemented algorithms to be added.
+
 ## Sources
 [Laaksonen, Antti "Tietorakenteet ja algoritmit" (2021)](https://github.com/hy-tira/tirakirja/raw/master/tirakirja.pdf)
 
