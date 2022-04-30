@@ -8,6 +8,29 @@ class Algorithm:
     def __init__(self):
         self.inf = 1e99
 
+    def initialize_data_structures(self, graph, start, end):
+        if not graph:
+            return None, None, None
+        n = len(graph)
+        m = len(graph[0])
+
+        # Check if start and end points are outside of graph.
+        if (not graph or end[0] < 0 or end[0] >= m or end[1] < 0 or end[1] >= n
+                or start[0] < 0 or start[0] >= m or start[1] < 0 or start[1] >= n):
+            return None, None, None
+
+        # Create and initialize dictionary for distance (from start node)
+        # and closed (visited) nodes.
+        distance = {}
+        previous = {}
+        closed = {}
+        for i in range(m):
+            for j in range(n):
+                distance[(i, j)] = self.inf
+                closed[(i, j)] = False
+
+        return distance, previous, closed
+
     def calculate_route(self, previous, start, end):
         """Calculates route.
 

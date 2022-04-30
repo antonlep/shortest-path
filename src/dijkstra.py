@@ -18,25 +18,12 @@ class Dijkstra(Algorithm):
         Returns:
             Tuple of shortest distance (float), shortest route (list) and visited nodes (list)
         """
-        if not graph:
-            return -1, [], []
-        n = len(graph)
-        m = len(graph[0])
+        # Create initial data structures
+        distance, previous, closed = self.initialize_data_structures(
+            graph, start, end)
 
-        # Check if start and end points are outside of graph.
-        if (not graph or end[0] < 0 or end[0] >= m or end[1] < 0 or end[1] >= n
-                or start[0] < 0 or start[0] >= m or start[1] < 0 or start[1] >= n):
+        if not distance:
             return -1, [], []
-
-        # Create and initialize dictionary for distance (from start node)
-        # and closed (visited) nodes.
-        distance = {}
-        previous = {}
-        closed = {}
-        for i in range(m):
-            for j in range(n):
-                distance[(i, j)] = self.inf
-                closed[(i, j)] = False
 
         # Create PriorityQueue for storing open (unvisited) nodes, and put start node there.
         distance[start] = 0
