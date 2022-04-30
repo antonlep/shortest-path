@@ -52,3 +52,5 @@ Berlin_0_256.map, Berlin_1_1024.map and Boston_0_256.map files from Moving AI La
 According to calculation times, Dijkstra is slowest, A* is about two times faster, and JPS is about 1.5 times faster than A*. That makes sense considering that A* is supposed to be improvement of Dijkstra, and JPS improvement of A*. With shortest path lengths, there is not much difference between algorithms. Probably the distance calculation itself doesn't take so much time with these lengths. Differences start to be more visible with longer path lengths. For Dijkstra, there is clear upper limit for calculation time visible. These are the cases where the full map has been explored, so it is not possible for calculation time to grow anymore.
 
 There is some difference between Berlin and Boston maps. Probably because Berlin map has more open spaces, JPS algorithm is slightly faster there. In open spaces less jump points are created in comparison to small closed spaces.
+
+Results with larger grid 1024x1024 are more clear, most likely because pixel size is smaller in comparison to obstacles and doesn't affect results artificially.
