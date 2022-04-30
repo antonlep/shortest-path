@@ -2,7 +2,7 @@
 ## Program structure
 ```mermaid
  classDiagram
-      Main -.-> InputParser
+      Main -.-> InputParser;
       class Main{
       }
       class InputParser{
