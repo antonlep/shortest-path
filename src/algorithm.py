@@ -122,7 +122,7 @@ class Algorithm:
 
     @abstractmethod
     def calculate_distance(self, graph, start, end):
-        pass
+        return None, None, None
 
     def heuristic(self, node, end):
         """Heuristic calculation.

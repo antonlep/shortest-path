@@ -9,6 +9,10 @@ class MockGraph:
         self.graph = data
 
 
+class MockDijkstra(Algorithm):
+    pass
+
+
 class TestAlgorithm(unittest.TestCase):
 
     def setUp(self):
@@ -34,7 +38,8 @@ class TestAlgorithm(unittest.TestCase):
         end = (1, 1)
         graph = {}
         self.assertAlmostEqual(dist.heuristic(start, end), math.sqrt(2))
-        self.assertEqual(dist.calculate_distance(graph, start, end), None)
+        self.assertEqual(dist.calculate_distance(
+            graph, start, end), (None, None, None))
 
     def test_calculate_route(self):
         dist = Algorithm()
@@ -44,3 +49,12 @@ class TestAlgorithm(unittest.TestCase):
         route = dist.calculate_route(previous, start, end)
         self.assertEqual(
             route, [(1, 1), (2, 2), (3, 3), (2, 2), (1, 1), (0, 0)])
+
+    def test_calculate_default_distance(self):
+        graph = MockGraph(self.graph)
+        alg = MockDijkstra()
+        start = (0, 0)
+        end = (1, 1)
+        dist, route, visited, tim = alg.calculate_distance_and_time(
+            graph, start, end)
+        self.assertEqual(dist, None)
