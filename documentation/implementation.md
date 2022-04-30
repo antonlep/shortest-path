@@ -1,21 +1,50 @@
 # Implementation
 ## Program structure
+```mermaid
+ classDiagram
+      main ..> InputParser
+      main ..> Dijkstra
+      main ..> AStar
+      main ..> JPS
+      main ..> MapImage
+      Dijkstra ..> Graph
+      AStar ..> Graph
+      JPS ..> Graph
+      Graph ..> MapImage
+      Algorithm --|> Dijkstra
+      Algorithm --|> AStar
+      Algorithm --|> JPS
+      class main{
+      }
+      class InputParser{
+      }
+      class Algorithm{
+      }
+      class MapImage{
+      }
+      class Graph{
+      }
+      class Dijkstra{
+      }
+      class AStar{
+      }
+      class JPS{
+      }
+```
 Program is divided into seven classes, and main executable file index.py. Short description of classes:
 ### MapImage
-MapImage includes operations for creating MapImage object from input text file, adding routes and points to the image and saving the image to disk. Python Imaging Library (pillow) is used for image operations.
-### Distance
-Distance calculation algorithms are implemented with template method pattern. Distance class is superclass, which includes basic methods for creating shortest route and visited nodes, and skeleton methods for distance calculation and heuristic.
+MapImage includes operations for creating MapImage object from input text file, adding routes and points to the image and saving an image to the disk. Python Imaging Library (pillow) is used for image operations.
 ### Algorithm
-Distance calculation algorithms are implemented with template method pattern. Algorithm class is superclass, which includes basic methods for creating shortest route and visited nodes, and skeleton methods for distance calculation and heuristic. Includes method also for running benchmark cases.
+Distance calculation algorithms are implemented with template method pattern. Algorithm class is superclass, which includes basic methods for creating shortest route and visited nodes, and skeleton method for distance calculation. Includes method also for running benchmark cases.
 ### Dijkstra, AStar and JPS 
-These subclasses inherit the Distance class and overwrite its distance calculation method.
+These subclasses inherit the Algorithm class and overwrite its distance calculation method.
 ### Graph
 Class that includes methods for graph manipulation and is used to convert map file to graph file format.
 ### Input parser
 Class for parsing command line arguments.
 
 ## Algorithm implementations
-Dijkstra and A* algorithm implementations are based on Tietorakenteet ja Algoritmit book and Wikipedia articles. JPS (jump point search) algorithm is based on Harabor and Grastien article. 2D grid is modelled as graph (python list of lists) where each node includes neighboring nodes and their distance (1 to horizontal and vertical direction, sqrt(2) to diagonal direction).
+Dijkstra and A* algorithm implementations are based on Tietorakenteet ja Algoritmit book and Wikipedia articles. JPS (jump point search) algorithm is based on Harabor and Grastien article. 2D grid is modelled as adjacency matrix (python list of lists) where each node includes neighboring nodes and their distance (1 to horizontal and vertical direction, sqrt(2) to diagonal direction).
 
 ### Dijkstra
 Algorithm uses python PriorityQueue for storing nodes to be calculated. Nodes are arranged based on their distance from start point, so that nodes with shortest distance from start are gone through first.
