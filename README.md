@@ -21,6 +21,8 @@ Shortest path solver in Python.
 
 [Weekly report 5](https://github.com/antonlep/shortest-path/blob/master/documentation/weekly_report5.md)
 
+[Weekly report 6](https://github.com/antonlep/shortest-path/blob/master/documentation/weekly_report6.md)
+
 
 ## Installation
 
