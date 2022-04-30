@@ -2,7 +2,7 @@
 ## Program structure
 ```mermaid
  classDiagram
-      Todo - User
+      Todo -- User
       class User{
           username
           password
