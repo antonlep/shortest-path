@@ -56,6 +56,8 @@ dijkstra: shortest path algorithm (dijkstra | a_star | jps)
 
 Berlin_0_256: map.scen file name (located in src/data folder)
 
+Results are saved as .csv file to src/data/
+
 ### Run tests
 
 `poetry run invoke test`
