@@ -6,7 +6,7 @@
       Main ..> Algorithm
       Main ..> MapImage
       Algorithm -- Graph
-      Graph ..> Image
+      Graph ..> MapImage
       class Main{
       }
       class InputParser{
