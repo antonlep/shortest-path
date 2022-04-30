@@ -53,4 +53,4 @@ According to calculation times, Dijkstra is slowest, A* is about two times faste
 
 There is some difference between Berlin and Boston maps. Probably because Berlin map has more open spaces, JPS algorithm is slightly faster there. In open spaces less jump points are created in comparison to small closed spaces.
 
-Results with larger grid 1024x1024 are more clear in comparison to smaller map, most likely because pixel size is smaller in comparison to obstacles and doesn't create artificial distraction to route calculation.
+Results with larger grid 1024x1024 are more clear in comparison to smaller map, most likely because pixel size is smaller in comparison to obstacles which doesn't create as much distraction to route calculation, could be also because number of calculated cases is higher.
