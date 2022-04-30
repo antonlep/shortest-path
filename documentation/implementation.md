@@ -2,15 +2,10 @@
 ## Program structure
 ```mermaid
  classDiagram
-      Todo -- User
-      class User{
-          username
-          password
+      Main ---> InputParser
+      class Main{
       }
-      class Todo{
-          id
-          content
-          done
+      class InputParser{
       }
 ```
 Program is divided into seven classes, and main executable file index.py. Short description of classes:
