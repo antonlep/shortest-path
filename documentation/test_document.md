@@ -38,8 +38,8 @@ Berlin_0_256.map and Berlin_1_1024.map files from Moving AI Lab are used as a be
 
 | Map           | Number of cases | Time, Dijkstra | Time, A*  | Time, JPS |
 | ------------- | --------------- | -------------- | --------- | --------- |
-|  Berlin_0_256 |            930  |        59.73 s |   75.38 s |   48.40 s |           
+|  Berlin_0_256 |            930  |       159.73 s |   75.38 s |   48.40 s |           
 | Berlin_1_1024 |           3920  |     14084.59 s | 7120.11 s | 4554.53 s |
 |  Boston_0_256 |            950  |       162.68 s |   71.50 s |   51.78 s |
 
-According to calculation times, Dijkstra is slowest, A* is about two times faster, and JPS is about two times faster than A*. That makes sense considering that A* is supposed to be improvement of Dijkstra, and JPS improvement of A*. With shortest path lengths, there is not much difference between algorithms. Probably the distance calculation itself doesn't take so much time with these lengths. Differences start to be more visible with longer path lengths. For Dijkstra, there is clear upper limit for calculation time visible. These are the cases where the full map has been explored, so it is not possible for calculation time to grow anymore.
+According to calculation times, Dijkstra is slowest, A* is about two times faster, and JPS is about 1.5 times faster than A*. That makes sense considering that A* is supposed to be improvement of Dijkstra, and JPS improvement of A*. With shortest path lengths, there is not much difference between algorithms. Probably the distance calculation itself doesn't take so much time with these lengths. Differences start to be more visible with longer path lengths. For Dijkstra, there is clear upper limit for calculation time visible. These are the cases where the full map has been explored, so it is not possible for calculation time to grow anymore.
