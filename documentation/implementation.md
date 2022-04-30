@@ -2,11 +2,11 @@
 ## Program structure
 ```mermaid
  classDiagram
-      Main ..> InputParser
-      Main ..> Dijkstra
-      Main ..> AStar
-      Main ..> JPS
-      Main ..> MapImage
+      main ..> InputParser
+      main ..> Dijkstra
+      main ..> AStar
+      main ..> JPS
+      main ..> MapImage
       Dijkstra ..> Graph
       AStar ..> Graph
       JPS ..> Graph
@@ -14,7 +14,7 @@
       Algorithm --|> Dijkstra
       Algorithm --|> AStar
       Algorithm --|> JPS
-      class Main{
+      class main{
       }
       class InputParser{
       }
