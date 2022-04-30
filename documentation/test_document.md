@@ -27,10 +27,12 @@ Four reference test cases have been made with four different map files to valida
 ![test_medium2](https://user-images.githubusercontent.com/76871257/162574528-b1e8a97e-1e3a-4f07-8cd8-4370ed155bb3.PNG)
 
 ## Performance testing with large map
-Berlin_0_256.map, Berlin_1_1024.map and Boston_0_256.map files from Moving AI Lab are used as a benchmark case for comparison between algorithms ([Sturtevant, Nathan R. "Benchmarks for grid-based pathfinding." IEEE Transactions on Computational Intelligence and AI in Games 4.2 (2012): 144-148.](https://www.cs.du.edu/~sturtevant/papers/benchmarks.pdf)).
+Berlin_0_256.map, Berlin_1_1024.map and Boston_0_256.map files from Moving AI Lab are used as a benchmark case for comparison between algorithms ([Sturtevant, Nathan R. "Benchmarks for grid-based pathfinding." IEEE Transactions on Computational Intelligence and AI in Games 4.2 (2012): 144-148.](https://www.cs.du.edu/~sturtevant/papers/benchmarks.pdf)).Berlin_1_1024 is the same map as Berlin_0_256 only in larger size, 1024x1024 instead of 256x256.
 
+### Berlin_0_256 and Berlin_1_1024
 ![berlin_map](https://user-images.githubusercontent.com/76871257/166102499-1a2217e5-0ea6-461c-b16d-f7ffbe450560.PNG)
 
+### Boston_0_256
 ![boston_map](https://user-images.githubusercontent.com/76871257/166102501-2f905345-f6d5-4fce-807b-f0354d0b77f6.PNG)
 
 ### Result comparison
