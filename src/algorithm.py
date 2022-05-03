@@ -95,7 +95,7 @@ class Algorithm:
         end_time = time.time()
         return shortest_distance, route, visited, end_time-start_time
 
-    def run_benchmark(self, graph, image_name):
+    def run_benchmark(self, graph, input_file, output_file):
         """Calculates benchmark case.
 
         Args:
@@ -105,10 +105,11 @@ class Algorithm:
         total_time = 0
         number_of_cases = 0
         with open(
-            f"data/{image_name}_{type(self).__name__}_results.csv",
-                "w", encoding="utf-8") as output_file:
+            # f"data/{image_name}_{type(self).__name__}_results.csv",
+                output_file, "w", encoding="utf-8") as output_file:
             writer = csv.writer(output_file)
-            with open(f"data/{image_name}.map.scen", encoding="utf-8") as file:
+            # with open(f"data/{image_name}.map.scen", encoding="utf-8") as file:
+            with open(input_file, encoding="utf-8") as file:
                 reader = csv.reader(file, delimiter='\t')
                 next(reader)
                 for line in reader:
@@ -119,10 +120,11 @@ class Algorithm:
                     number_of_cases += 1
         print("Number of cases: ", number_of_cases)
         print("Calculation time: ", total_time)
+        return number_of_cases, total_time
 
     @abstractmethod
     def calculate_distance(self, graph, start, end):
-        return None, None, None
+        return None, [], []
 
     def heuristic(self, node, end):
         """Heuristic calculation.

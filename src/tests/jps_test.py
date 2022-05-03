@@ -157,23 +157,51 @@ class TestJPS(unittest.TestCase):
     def test_prune6(self):
         alg = JPS()
         parent = (0, 1)
+        node = (1, 2)
+        new_neighbors = alg.prune(self.graph1, parent, node)
+        self.assertEqual(new_neighbors, [(2, 2), (2, 1)])
+
+    def test_prune7(self):
+        alg = JPS()
+        parent = (0, 1)
         node = (1, 0)
         new_neighbors = alg.prune(self.graph1, parent, node)
         self.assertEqual(new_neighbors, [(2, 0), (2, 1)])
 
-    def test_prune7(self):
+    def test_prune8(self):
+        alg = JPS()
+        parent = (1, 0)
+        node = (0, 1)
+        new_neighbors = alg.prune(self.graph1, parent, node)
+        self.assertEqual(new_neighbors, [(0, 2), (1, 2)])
+
+    def test_prune9(self):
         alg = JPS()
         parent = (2, 1)
         node = (1, 0)
         new_neighbors = alg.prune(self.graph1, parent, node)
         self.assertEqual(new_neighbors, [(0, 0), (0, 1)])
 
-    def test_prune8(self):
+    def test_prune10(self):
+        alg = JPS()
+        parent = (1, 0)
+        node = (2, 1)
+        new_neighbors = alg.prune(self.graph1, parent, node)
+        self.assertEqual(new_neighbors, [(2, 2), (1, 2)])
+
+    def test_prune11(self):
         alg = JPS()
         parent = (2, 1)
         node = (1, 2)
         new_neighbors = alg.prune(self.graph1, parent, node)
         self.assertEqual(new_neighbors, [(0, 2), (0, 1)])
+
+    def test_prune12(self):
+        alg = JPS()
+        parent = (1, 2)
+        node = (2, 1)
+        new_neighbors = alg.prune(self.graph1, parent, node)
+        self.assertEqual(new_neighbors, [(2, 0), (1, 0)])
 
     def test_forced_neighbor1(self):
         alg = JPS()
@@ -184,15 +212,43 @@ class TestJPS(unittest.TestCase):
 
     def test_forced_neighbor2(self):
         alg = JPS()
-        node = (2, 1)
-        direction = (0, -1)
+        node = (1, 2)
+        direction = (1, 0)
         forced = alg.forced_neighbor(self.graph1, node, direction)
         self.assertEqual(forced, True)
 
     def test_forced_neighbor3(self):
         alg = JPS()
-        node = (1, 2)
-        direction = (1, 0)
+        node = (0, 1)
+        direction = (-1, -1)
+        forced = alg.forced_neighbor(self.graph1, node, direction)
+        self.assertEqual(forced, True)
+
+    def test_forced_neighbor4(self):
+        alg = JPS()
+        node = (1, 0)
+        direction = (-1, -1)
+        forced = alg.forced_neighbor(self.graph1, node, direction)
+        self.assertEqual(forced, True)
+
+    def test_forced_neighbor5(self):
+        alg = JPS()
+        node = (2, 2)
+        direction = (-1, 1)
+        forced = alg.forced_neighbor(self.graph1, node, direction)
+        self.assertEqual(forced, False)
+
+    def test_forced_neighbor6(self):
+        alg = JPS()
+        node = (0, 1)
+        direction = (-1, 1)
+        forced = alg.forced_neighbor(self.graph1, node, direction)
+        self.assertEqual(forced, True)
+
+    def test_forced_neighbor7(self):
+        alg = JPS()
+        node = (1, 0)
+        direction = (1, -1)
         forced = alg.forced_neighbor(self.graph1, node, direction)
         self.assertEqual(forced, True)
 

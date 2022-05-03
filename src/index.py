@@ -33,7 +33,9 @@ def main():
                      "data/" + image_map + ".map")
     graph = Graph(image)
     if benchmark:
-        algorithm.run_benchmark(graph, image.name)
+        input_file = f"data/{image_map}.map.scen"
+        output_file = f"data/{image_map}_{algorithm_name}_results.csv"
+        algorithm.run_benchmark(graph, input_file, output_file)
     else:
         shortest_distance, route, visited, el_time = algorithm.calculate_distance_and_time(
             graph, start, end)

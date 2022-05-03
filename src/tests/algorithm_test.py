@@ -1,7 +1,9 @@
 import unittest
 import math
 from algorithm import Algorithm
-from graph import Graph
+from pathlib import Path
+
+THIS_DIR = Path(__file__).parent
 
 
 class MockGraph:
@@ -39,7 +41,7 @@ class TestAlgorithm(unittest.TestCase):
         graph = {}
         self.assertAlmostEqual(dist.heuristic(start, end), math.sqrt(2))
         self.assertEqual(dist.calculate_distance(
-            graph, start, end), (None, None, None))
+            graph, start, end), (None, [], []))
 
     def test_calculate_route(self):
         dist = Algorithm()
@@ -58,3 +60,11 @@ class TestAlgorithm(unittest.TestCase):
         dist, route, visited, tim = alg.calculate_distance_and_time(
             graph, start, end)
         self.assertEqual(dist, None)
+
+    def test_benchmark(self):
+        graph = MockGraph(self.graph)
+        alg = MockDijkstra()
+        infile = str(THIS_DIR / 'simple.map.scen')
+        outfile = str(THIS_DIR / 'simple.csv')
+        cases, el_time = alg.run_benchmark(graph, infile, outfile)
+        self.assertEqual(cases, 2)

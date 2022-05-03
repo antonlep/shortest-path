@@ -1,6 +1,7 @@
 import unittest
 from map_image import MapImage
 from pathlib import Path
+from jps import JPS
 
 THIS_DIR = Path(__file__).parent
 
@@ -76,7 +77,7 @@ class TestMapImage(unittest.TestCase):
     def test_save_images_jps(self):
         route = [(0, 0), (0, 1), (0, 2)]
         visited = [(1, 0), (1, 1), (1, 2)]
-        algorithm = MockAlgorithm("jps")
+        algorithm = JPS()
         self.simple_image.save_images(algorithm, route, visited)
         self.assertEqual(self.simple_image.image.getpixel(
             (0, 1)), (2, 2, 2))
