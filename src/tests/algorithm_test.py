@@ -39,7 +39,6 @@ class TestAlgorithm(unittest.TestCase):
         start = (0, 0)
         end = (1, 1)
         graph = {}
-        self.assertAlmostEqual(dist.heuristic(start, end), math.sqrt(2))
         self.assertEqual(dist.calculate_distance(
             graph, start, end), (None, [], []))
 

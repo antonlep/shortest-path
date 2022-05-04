@@ -1,4 +1,4 @@
-import queue
+import math
 from algorithm import Algorithm
 
 
@@ -19,66 +19,30 @@ class JPS(Algorithm):
             Tuple of shortest distance (float), shortest route (list) and visited nodes (list)
         """
         # Create initial data structures
-        distance, previous, closed = self.initialize_data_structures(
+        distance, previous, closed, open_list, first_node = self.initialize_data_structures(
             graph, start, end)
 
         if not distance:
             return -1, [], []
 
-        # Create PriorityQueue for storing open (unvisited) nodes, and put start node there.
-        distance[start] = 0
-        open_list = queue.PriorityQueue()
-        f_cost = self.heuristic(start, end)
-        open_list.put((f_cost, start))
-        first_node = True
-
         # Loop until there are no unvisited nodes to process.
+        # Nodes are ordered according to estimated distance from start to end throug current node.
         while not open_list.empty():
 
             # Take next node from queue.
             # If it is end node, break from the loop.
             # If it is already processed, skip rest of the loop and take next node.
-            # Nodes are ordered according to estimated distance from start to end.
-            _, x = open_list.get()
-            if x == end:
+            x, closed, end_node, processed_node = self.take_next_node(
+                open_list, closed, end)
+            if end_node:
                 break
-            if closed[x]:
+            if processed_node:
                 continue
-            closed[x] = True
 
-            # Select node neighbors.
-            neighbors = graph[x[0]][x[1]]
-            successors = []
-
-            # If node is start point, select all neighbor nodes.
-            # Otherwise, select only neighbors that are
-            # natural neighbors according to JPS algorithm.
-            if first_node:
-                natural_neighbors = [s[0] for s in neighbors]
-                first_node = False
-            else:
-                natural_neighbors = self.prune(
-                    graph, previous[x], x)
-
-            # Go through neighbors and check if jump point exists in each direction.
-            # If jump point is found, put it to the list.
-            for neighbor in natural_neighbors:
-                direction = (neighbor[0] - x[0], neighbor[1] - x[1])
-                n = self.jump(graph, x, direction, start, end)
-                if n is not None:
-                    successors.append(n)
-
-            # Go through found jump points. If distance through the current node to jump point
-            # is smaller than already exists for jump point, calculate estimated distance
-            # from start to end through that jump point and put to PriorityQueue.
-            for successor in successors:
-                old = distance[successor]
-                new = distance[x] + self.heuristic(x, successor)
-                if new < old:
-                    distance[successor] = new
-                    previous[successor] = x
-                    f_cost = new + self.heuristic(successor, end)
-                    open_list.put((f_cost, successor))
+            # Go through jump points starting from current node, calculate distances for them
+            # and update data structures accordingly.
+            distance, previous, open_list, first_node = self.go_through_jump_points_and_update(
+                graph, distance, previous, x, start, end, open_list, first_node)
 
         # If list has been gone through and no end point found, return -1.
         if distance[end] == self.inf:
@@ -197,7 +161,8 @@ class JPS(Algorithm):
         if self.forced_neighbor(graph, n, direction):
             return n
 
-        # If direction is diagonal, start two jumps to vertical and horizontal directions from neighbor node.
+        # If direction is diagonal, start two jumps to vertical
+        # and horizontal directions from neighbor node.
         # Return jump point if it is found.
         if direction[0] != 0 and direction[1] != 0:
             if self.jump(graph, n, (direction[0], 0), start, goal) is not None:
@@ -286,3 +251,15 @@ class JPS(Algorithm):
                         and not self.is_blocked(graph, node, (-1, -1))):
                     return True
         return False
+
+    def heuristic(self, node, end):
+        """Heuristic calculation.
+
+        Args:
+            node: start node coordinates
+            end: end node coordinates
+
+        Returns:
+            Euclidean distance between start and end points.
+        """
+        return math.sqrt((node[0]-end[0])**2+(node[1]-end[1])**2)
