@@ -102,7 +102,6 @@ class MapImage:
             visited: List of visited nodes.
         """
         self.save("data/" + self.name + "_original")
-        print(isinstance(algorithm, JPS))
         if isinstance(algorithm, JPS):
             self.add_route(route, "route")
             self.add_route(visited, "visited")

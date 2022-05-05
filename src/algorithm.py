@@ -171,11 +171,8 @@ class Algorithm:
         """
         total_time = 0
         number_of_cases = 0
-        with open(
-            # f"data/{image_name}_{type(self).__name__}_results.csv",
-                out_file, "w", encoding="utf-8") as output_file:
+        with open(out_file, "w", encoding="utf-8") as output_file:
             writer = csv.writer(output_file)
-            # with open(f"data/{image_name}.map.scen", encoding="utf-8") as file:
             with open(input_file, encoding="utf-8") as file:
                 reader = csv.reader(file, delimiter='\t')
                 next(reader)
@@ -185,8 +182,6 @@ class Algorithm:
                     writer.writerow((shortest_distance, el_time, len(visited)))
                     total_time += el_time
                     number_of_cases += 1
-        print("Number of cases: ", number_of_cases)
-        print("Calculation time: ", total_time)
         return number_of_cases, total_time
 
     @abstractmethod

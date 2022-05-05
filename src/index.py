@@ -35,7 +35,10 @@ def main():
     if benchmark:
         input_file = f"data/{image_map}.map.scen"
         output_file = f"data/{image_map}_{algorithm_name}_results.csv"
-        algorithm.run_benchmark(graph, input_file, output_file)
+        number_of_cases, total_time = algorithm.run_benchmark(
+            graph, input_file, output_file)
+        print("Number of cases: ", number_of_cases)
+        print("Calculation time: ", total_time)
     else:
         shortest_distance, route, visited, el_time = algorithm.calculate_distance_and_time(
             graph, start, end)
