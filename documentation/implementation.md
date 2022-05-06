@@ -89,7 +89,30 @@ In comparison to Dijkstra, there is additional calculation to estimate distance 
 Space complexity is the same O(8n) as for Dijkstra.
 
 ### Jump Point Search
-Algorithm is quite similar to A*. Difference is that in A* all neighbors are considered for distance calculation, but in JPS only certain nodes, so called jump points, are calculated more extensively. There is additional processing where jump points are identified based on direction and if neighbor nodes are blocked or not. This processing is done with recursive jump method, which returns jump point if it is found, and is not computationally as expensive as distance calculation:
+Algorithm is quite similar to A*. Difference is that in A* all neighbors are considered for distance calculation, but in JPS only certain nodes, so called jump points, are calculated more extensively. There is additional processing where jump points are identified based on direction and if neighbor nodes are blocked or not. This processing is done with recursive jump method, which returns jump point if it is found:
+```
+f_cost = distance_to_end(start)
+queue.put(f_cost,start)
+while not queue.empty()                 # O(n)
+    node = queue.get()                  # O(log n)  
+    if closed[node]
+        continue
+    closed[node] = true
+    neighbors = prune(neighbors)        # O(1)
+    successors = []
+    for neighbor in neighbors           # O(8)
+        jump_point = jump(neighbor)
+        successors.append(jump_point)
+    for successor in successors         # O(8)
+        old = distance[successor]
+        new = distance[node]+distance(node, successor)
+        if new < old
+            distance[successor] = new
+            f_cost = new + distance_to_end(successor)
+            queue.put((f_cost, successor))  # O(log n)
+```
+
+
 
 ## Performance analysis
 Theoretical performance analysis and performance comparison between actual implemented algorithms to be added.
