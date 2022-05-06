@@ -118,6 +118,8 @@ Space complexity is the same O(8n) as for other algorithms.
 ## Performance comparison
 Theoretical performance analysis and performance comparison between actual implemented algorithms to be added.
 
+## Improvement areas
+
 ## Sources
 [Laaksonen, Antti "Tietorakenteet ja algoritmit" (2021)](https://github.com/hy-tira/tirakirja/raw/master/tirakirja.pdf)
 
