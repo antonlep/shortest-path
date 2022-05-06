@@ -116,7 +116,7 @@ In theory, if the examined node is in the middle of the map and jump point metho
 Space complexity is the same O(8n) as for other algorithms.
 
 ## Performance comparison
-Theoretical performance analysis and performance comparison between actual implemented algorithms to be added.
+Performance analysis
 
 ## Improvement areas
 
