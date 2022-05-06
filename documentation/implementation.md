@@ -116,10 +116,13 @@ In theory, if the examined node is in the middle of the map and jump point metho
 Space complexity is the same O(8n) as for other algorithms.
 
 ## Performance comparison
-Performance analysis
+Performance analysis with three maps and about 6000 calculation cases ([Test document](https://github.com/antonlep/shortest-path/blob/master/documentation/test_document.md)) showed that JPS is faster, A* second and Dijkstra slowest, as could be expected based on theoretical analysis. On average, A* was 2.16 times faster than Dijkstra and JPS 3.20 times faster than Dijkstra. 
 
 ## Improvement areas
-
+- Because calculation takes relatively long time especially for large grids, some faster programming language than Python could be used, for example Java or C++. 
+- In some web sources it was mentioned that JPS could be even faster in comparison to A* than was achieved here. Could be related to implementation details or Python language features.
+- Graphical user interface could be included.
+- Algorithm code could be made more clear, also redundant code could be removed.
 ## Sources
 [Laaksonen, Antti "Tietorakenteet ja algoritmit" (2021)](https://github.com/hy-tira/tirakirja/raw/master/tirakirja.pdf)
 
