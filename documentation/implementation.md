@@ -49,6 +49,21 @@ Dijkstra and A* algorithm implementations are based on Tietorakenteet ja Algorit
 ### Dijkstra
 Algorithm uses python PriorityQueue for storing nodes to be calculated. Nodes are arranged based on their distance from start point, so that nodes with shortest distance from start are gone through first.
 
+`
+ keko.push((0,alku))
+ while not keko.empty()
+ solmu = keko.pop().tunnus
+ if kasitelty[solmu]
+  continue
+ kasitelty[solmu] = true
+ for kaari in verkko[solmu]
+  nyky = etaisyys[kaari.loppu]
+  uusi = etaisyys[solmu]+kaari.paino
+  if uusi < nyky
+   etaisyys[kaari.loppu] = uusi
+   keko.push((uusi,kaari.loppu))
+`
+
 ### A*
 Algorithm is almost the same as Dijkstra, except heuristic function is included. Order in which nodes are to be calculated is based on the sum of distance from start to the current node and estimated distance from current node to the end (calculated with euclidean distance). Nodes with shortest total estimated distance are to be calculated first.
 
