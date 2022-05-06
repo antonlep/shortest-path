@@ -11,6 +11,8 @@ Shortest path solver in Python.
 
 [Test document](https://github.com/antonlep/shortest-path/blob/master/documentation/test_document.md)
 
+[Manual](https://github.com/antonlep/shortest-path/blob/master/documentation/manual.md)
+
 [Weekly report 1](https://github.com/antonlep/shortest-path/blob/master/documentation/weekly_report1.md)
 
 [Weekly report 2](https://github.com/antonlep/shortest-path/blob/master/documentation/weekly_report2.md)
