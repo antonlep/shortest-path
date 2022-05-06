@@ -101,7 +101,7 @@ while not queue.empty()                 # O(n)
     neighbors = prune(neighbors)        # O(1)
     successors = []
     for neighbor in neighbors           # O(8)
-        jump_point = jump(neighbor)
+        jump_point = jump(neighbor)     # O(n/2)
         successors.append(jump_point)
     for successor in successors         # O(8)
         old = distance[successor]
@@ -111,10 +111,11 @@ while not queue.empty()                 # O(n)
             f_cost = new + distance_to_end(successor)
             queue.put((f_cost, successor))  # O(log n)
 ```
+In theory, if the examined node is in the middle of the map and jump point method goes through all directions until the end of the map, it would take O(8n/2) = O(n) amount of time. In this case, the total calculation time for the algorithm would be O(n(log n + n)) = O(n^2). This shows that the calculation time for one iteration (taking one node from queue, processing etc.) is greater than for Dijkstra and A*. On the other hand, JPS doesn't need to do nearly as many iterations than Dijkstra or A*, because it can "jump" in straight line for longer distance between nodes, and consequently doesn't need to do so many computationally expensive queue.get() and queue.put() operations. This causes JPS to be overally faster than A* with typical 2D grids.
 
+Space complexity is the same O(8n) as for other algorithms.
 
-
-## Performance analysis
+## Performance comparison
 Theoretical performance analysis and performance comparison between actual implemented algorithms to be added.
 
 ## Sources
