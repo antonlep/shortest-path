@@ -34,9 +34,13 @@ Requires Python (>=3.8) and Poetry (>=1.1.11)
 
 ## Instructions
 
+### Start command line user interface
+
+`poetry run invoke start`
+
 ### Calculate shortest distance between two points
 
-`poetry run invoke start dijkstra Berlin_0_256 164 62 64 139`
+`poetry run invoke calculate dijkstra Berlin_0_256 164 62 64 139`
 
 dijkstra: shortest path algorithm (dijkstra | a_star | jps)
 
