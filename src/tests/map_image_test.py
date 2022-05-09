@@ -16,9 +16,11 @@ class TestMapImage(unittest.TestCase):
         simple_map = str(THIS_DIR / 'simple.map')
         empty_map = str(THIS_DIR / 'empty.map')
         self.simple_image = MapImage(
-            (255, 0, 0), (0, 255, 0), (1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 4, 4), 1, simple_map)
+            (255, 0, 0), (0, 255, 0), (1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 4, 4), 1)
         self.empty_image = MapImage(
-            (255, 0, 0), (0, 255, 0), (1, 1, 1), (1, 1, 1), (1, 1, 1), (1, 1, 1), 1, empty_map)
+            (255, 0, 0), (0, 255, 0), (1, 1, 1), (1, 1, 1), (1, 1, 1), (1, 1, 1), 1)
+        self.simple_image.read(simple_map)
+        self.empty_image.read(empty_map)
 
     def test_import_map(self):
         self.assertEqual(self.simple_image.data, [[".", ".", "."], [

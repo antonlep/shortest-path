@@ -167,7 +167,8 @@ class Algorithm:
 
         Args:
             graph: Graph object to be calculated.
-            image_name: Name of image to be calculated.
+            input_file: Name of scenario file to be calculated.
+            out_file: Name of output text file.
         """
         total_time = 0
         number_of_cases = 0

@@ -20,7 +20,7 @@ class MapImage:
     """
 
     def __init__(self, fg_color, bg_color, visited_color,
-                 route_color, start_color, end_color, scale_factor, image_map):
+                 route_color, start_color, end_color, scale_factor):
         self.mode = 'RGB'
         self.fg_color = fg_color
         self.bg_color = bg_color
@@ -29,10 +29,10 @@ class MapImage:
         self.start_color = start_color
         self.end_color = end_color
         self.scale_factor = scale_factor
-        self.image, self.data, self.size = self.import_map(image_map)
-        self.name = image_map.replace('/', '.').split('.')[1]
+        self.image, self.data, self.size = None, None, None
+        self.name = ""
 
-    def import_map(self, i_map):
+    def read(self, i_map):
         """Imports map file and converts it to image format and to list.
 
         Args:
@@ -61,7 +61,10 @@ class MapImage:
                 data.append(row)
 
         data = list(map(list, zip(*data)))
-        return image, data, size
+        self.image = image
+        self.data = data
+        self.size = size
+        self.name = i_map.replace('/', '.').split('.')[1]
 
     def add_route(self, route, input_type):
         """Adds nodes in a route to image file.

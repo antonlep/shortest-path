@@ -12,7 +12,9 @@ class InputParser:
             Tuple of benchmark (string), algorithm name (string),
             image file name (string), start point (tuple) and end point (tuple)
         """
-        benchmark = False
+        ctype = None
+        algorithm = ""
+        image_map = ""
         start = None
         end = None
         if len(sys.argv) <= 1:
@@ -23,7 +25,7 @@ class InputParser:
                   [end point x-coord] [end_point y-coord]""")
             sys.exit()
         elif sys.argv[1] == "benchmark":
-            benchmark = True
+            ctype = "benchmark"
             try:
                 algorithm = sys.argv[2]
                 image_map = sys.argv[3]
@@ -32,7 +34,10 @@ class InputParser:
                 print(
                     "Positional arguments to use: benchmark [ dijkstra | a_star | jps] [ map name]")
                 sys.exit()
+        elif sys.argv[1] == "start":
+            ctype = "start"
         else:
+            ctype = "calculation"
             try:
                 algorithm = sys.argv[1]
                 image_map = sys.argv[2]
@@ -45,4 +50,4 @@ class InputParser:
                       [map name] [start point x-coord] [start point y-coord]
                       [end point x-coord] [end_point y-coord]""")
                 sys.exit()
-        return benchmark, algorithm, image_map, start, end
+        return ctype, algorithm, image_map, start, end
