@@ -6,11 +6,10 @@
       main ..> TextUI
       main ..> MapImage
       main ..> Service
+      main ..> Algorithm
       TextUI -- Service
       TextUI -- MapImage
-      Service ..> Dijkstra
-      Service ..> AStar
-      Service ..> JPS
+      Service ..> Algorithm
       Service ..> MapImage
       Dijkstra ..> Graph
       AStar ..> Graph
