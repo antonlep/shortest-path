@@ -11,6 +11,7 @@
       Service ..> Dijkstra
       Service ..> AStar
       Service ..> JPS
+      Service ..> MapImage
       Dijkstra ..> Graph
       AStar ..> Graph
       JPS ..> Graph
