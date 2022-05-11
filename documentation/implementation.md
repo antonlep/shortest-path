@@ -5,10 +5,11 @@
       main ..> InputParser
       main ..> Service
       main ..> TextUI
-      main ..> Dijkstra
-      main ..> AStar
-      main ..> JPS
       main ..> MapImage
+      Service ..> Dijkstra
+      Service ..> AStar
+      Service ..> JPS
+      Service ..> Graph
       Dijkstra ..> Graph
       AStar ..> Graph
       JPS ..> Graph
