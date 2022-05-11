@@ -6,11 +6,11 @@ Requires Python (>=3.8) and Poetry (>=1.1.11)
 
 ## Instructions
 
-### Start command line user interface
+### Start text-based user interface
 
 `poetry run invoke start`
 
-### Calculate shortest distance between two points
+### Calculate shortest distance between two points using command line arguments
 
 `poetry run invoke calculate dijkstra Berlin_0_256 164 62 64 139`
 
@@ -28,7 +28,7 @@ Berlin_0_256: map file name (located in src/data folder)
 
 Picture with shortest route and visited nodes is saved as .png file to src/data/
 
-### Calculate benchmark case
+### Calculate benchmark case using command line arguments
 
 `poetry run invoke benchmark dijkstra Berlin_0_256`
 
