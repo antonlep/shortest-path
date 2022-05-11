@@ -4,8 +4,8 @@
  classDiagram
       main ..> InputParser
       main ..> TextUI
-      main ..> Service
       main ..> MapImage
+      main ..> Service
       TextUI -- Service
       TextUI -- MapImage
       Service ..> Dijkstra
