@@ -9,7 +9,6 @@
       Service ..> Dijkstra
       Service ..> AStar
       Service ..> JPS
-      Service ..> Graph
       Dijkstra ..> Graph
       AStar ..> Graph
       JPS ..> Graph
