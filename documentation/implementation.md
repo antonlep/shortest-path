@@ -36,13 +36,15 @@
       class JPS{
       }
 ```
-Program is divided into seven classes, and main executable file index.py. Short description of classes:
+Program is divided into nine classes, and main executable file index.py. Short description of classes:
 ### MapImage
 MapImage includes operations for creating MapImage object from input text file, adding routes and points to the image and saving an image to the disk. Python Imaging Library (pillow) is used for image operations.
 ### Algorithm
 Distance calculation algorithms are implemented with template method pattern. Algorithm class is superclass, which includes basic methods for creating shortest route and visited nodes, and skeleton method for distance calculation. Includes method also for running benchmark cases.
 ### Dijkstra, AStar and JPS 
 These subclasses inherit the Algorithm class and overwrite its distance calculation method.
+### TextUI
+Class for text-based user interface. Includes methods for reading user input and printing information to console. There is association to MapImage and Service classes.
 ### Graph
 Class that includes methods for graph manipulation and is used to convert map file to graph file format.
 ### Input parser
@@ -126,6 +128,7 @@ Performance analysis with three maps and about 6000 calculation cases ([Test doc
 ## Improvement areas
 - Because calculation takes relatively long time especially for large grids, some faster programming language than Python could be used, for example Java or C++. 
 - In some web sources it was mentioned that JPS could be even faster in comparison to A* than was achieved here. Could be related to implementation details or Python language features.
+- Class structure could be improved, for example methods related to handling command line arguments could be moved to a new class from index.py file. 
 - Graphical user interface could be included.
 - Algorithm code could be made more clear, also redundant code could be removed.
 ## Sources
