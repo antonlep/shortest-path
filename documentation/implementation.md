@@ -6,6 +6,8 @@
       main ..> Service
       main ..> TextUI
       main ..> MapImage
+      TextUI -- Service
+      TextUI -- MapImage
       Service ..> Dijkstra
       Service ..> AStar
       Service ..> JPS
