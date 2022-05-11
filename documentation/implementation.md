@@ -45,6 +45,8 @@ Distance calculation algorithms are implemented with template method pattern. Al
 These subclasses inherit the Algorithm class and overwrite its distance calculation method.
 ### TextUI
 Class for text-based user interface. Includes methods for reading user input and printing information to console. There is association to MapImage and Service classes.
+### Service
+Has upper class methods for running distance calculation and benchmark cases using MapImage objects. Reason to have separate Service class is that textUI and index.py can use methods from this class instead of implementing their own.
 ### Graph
 Class that includes methods for graph manipulation and is used to convert map file to graph file format.
 ### Input parser
