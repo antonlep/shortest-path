@@ -11,6 +11,7 @@
       TextUI -- MapImage
       Service ..> Algorithm
       Service ..> MapImage
+      Service ..> Graph
       Dijkstra ..> Graph
       AStar ..> Graph
       JPS ..> Graph
