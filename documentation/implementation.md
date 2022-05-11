@@ -129,9 +129,9 @@ Performance analysis with three maps and about 6000 calculation cases ([Test doc
 
 ## Improvement areas
 - Because calculation takes relatively long time especially for large grids, some faster programming language than Python could be used, for example Java or C++. 
-- In some web sources it was mentioned that JPS could be even faster in comparison to A* than was achieved here. Could be related to implementation details or Python language features.
-- Class structure could be improved, for example methods related to handling command line arguments could be moved to a new class from index.py file. 
-- Graphical user interface could be included.
+- In some web sources it was mentioned that JPS could be even faster in comparison to A* than was achieved here. Could be related to JPS implementation details or Python language features.
+- Class structure could be improved, for example methods related to handling command line arguments could be moved from index.py to a new class. 
+- Graphical user interface could be added.
 - Algorithm code could be made more clear, also redundant code could be removed.
 ## Sources
 [Laaksonen, Antti "Tietorakenteet ja algoritmit" (2021)](https://github.com/hy-tira/tirakirja/raw/master/tirakirja.pdf)
