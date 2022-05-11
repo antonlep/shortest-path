@@ -3,8 +3,8 @@
 ```mermaid
  classDiagram
       main ..> InputParser
-      main ..> Service
       main ..> TextUI
+      main ..> Service
       main ..> MapImage
       TextUI -- Service
       TextUI -- MapImage
