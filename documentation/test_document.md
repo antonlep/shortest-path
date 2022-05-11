@@ -1,7 +1,8 @@
 # Test document
 ## Unit testing
 Each class is separately tested with Python unittest framework.
-![coverage](https://user-images.githubusercontent.com/76871257/164908658-851ff4bb-d1b6-415e-b946-221e60697192.PNG)
+![coverage](https://user-images.githubusercontent.com/76871257/167906924-03763951-968b-4b5f-9561-6fc8cac6c99c.PNG)
+
 
 https://app.codecov.io/gh/antonlep/shortest-path.
 
@@ -11,6 +12,15 @@ Map file import and graph creation is tested with two input files. Adding route 
 For these three classes, shortest distance, shortest route and visited nodes are tested with three input graphs and various start and end locations. JPS class has additional methods which are separately tested.
 ### Algorithm
 Algorithm class own methods are tested in case that the class is used without using subclass. 
+### Graph
+Graph creation is tested with two maps.
+### Input parser
+A few cases with different input arguments are tested.
+### MapImage
+Image import, point and route addition and image saving are tested with two maps.
+### Service
+Class methods are tested with help of mock classes.
+
 ## Route testing with small map
 Four reference test cases have been made with four different map files to validate shortest path and to make sure that visited nodes are correct. In case of JPS algorithm, jump points are examined instead of visited nodes. Color codes: wall = white, unvisited floor = blue, visited floor = red, shortest route = black, start point = yellow, end point = green. 
 
