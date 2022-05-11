@@ -44,7 +44,7 @@ Distance calculation algorithms are implemented with template method pattern. Al
 ### Dijkstra, AStar and JPS 
 These subclasses inherit the Algorithm class and overwrite its distance calculation method.
 ### TextUI
-Class for text-based user interface. Includes methods for reading user input and printing information to console. There is association to MapImage and Service classes.
+Class for text-based user interface. Includes methods for reading user input and outputting text to console. There is association to MapImage and Service classes.
 ### Service
 Has upper class methods for running distance calculation and benchmark cases using MapImage objects. Purpose of Service class is to have common methods that multiple other classes need in one place.
 ### Graph
