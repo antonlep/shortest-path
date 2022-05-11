@@ -4,11 +4,11 @@
  classDiagram
       main ..> InputParser
       main ..> Service
+      main ..> TextUI
       main ..> Dijkstra
       main ..> AStar
       main ..> JPS
       main ..> MapImage
-      main ..> TextUI
       Dijkstra ..> Graph
       AStar ..> Graph
       JPS ..> Graph
