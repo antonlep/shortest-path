@@ -1,13 +1,14 @@
 from a_star import AStar
 from jps import JPS
 from dijkstra import Dijkstra
+from graph import Graph
 
 
 class Service:
     """ Class that includes methods for executing calculation cases.
     """
 
-    def run_benchmark(self, image, algorithm, graph):
+    def run_benchmark(self, image, algorithm):
         """Calculates benchmark case with several calculation points. 
             Prints results to command line and to .csv file.
 
@@ -16,6 +17,7 @@ class Service:
             algorithm: Calculation algorithm as Algorithm object
             graph: Case to be calculated as Graph object
         """
+        graph = Graph(image)
         image_map = image.name
         input_file = f"data/{image_map}.map.scen"
         output_file = f"data/{image_map}_{algorithm.__class__.__name__}_results.csv"
@@ -23,7 +25,7 @@ class Service:
             graph, input_file, output_file)
         return number_of_cases, total_time
 
-    def calculate_distance(self, graph, algorithm, image, start, end):
+    def calculate_distance(self, algorithm, image, start, end):
         """Calculates shortest path in a graph between two points.
 
         Args:
@@ -33,6 +35,7 @@ class Service:
             start: Tuple with x, y coordinates of start point
             end: Tuple with x, y coordinates of start point
         """
+        graph = Graph(image)
         shortest_distance, route, visited, el_time = algorithm.calculate_distance_and_time(
             graph, start, end)
         image.save_images(algorithm, route, visited)

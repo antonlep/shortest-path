@@ -14,6 +14,7 @@ class MockAlgorithm:
 class MockImage:
     def __init__(self, name):
         self.name = name
+        self.data = [[1], [2]]
 
     def save_images(self, a, b, c):
         pass
@@ -30,21 +31,19 @@ class TestService(unittest.TestCase):
     def test_benchmark(self):
         image = MockImage("test")
         algorithm = MockAlgorithm()
-        graph = MockGraph()
         service = Service()
-        cases, tot_time = service.run_benchmark(image, algorithm, graph)
+        cases, tot_time = service.run_benchmark(image, algorithm)
         self.assertEqual(cases, 1)
         self.assertEqual(tot_time, 2)
 
     def test_calculate_distance(self):
         image = MockImage("test")
         algorithm = MockAlgorithm()
-        graph = MockGraph()
         service = Service()
         start = (0, 0)
         end = (10, 10)
         dist, tot_time, visited = service.calculate_distance(
-            graph, algorithm, image, start, end)
+            algorithm, image, start, end)
         self.assertEqual(dist, 1)
         self.assertEqual(tot_time, 4)
         self.assertEqual(visited, 2)

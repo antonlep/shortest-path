@@ -3,7 +3,6 @@ from os.path import isfile, join
 from dijkstra import Dijkstra
 from a_star import AStar
 from jps import JPS
-from graph import Graph
 
 
 class TextUI:
@@ -71,10 +70,9 @@ class TextUI:
         endy = self._input_coord("end point y-coord: ")
         print("--------------------")
         self.image.read("data/" + s_map + ".map")
-        graph = Graph(self.image)
         try:
             shortest_distance, el_time, visited = self.service.calculate_distance(
-                graph, algorithm, self.image, (startx, starty), (endx, endy))
+                algorithm, self.image, (startx, starty), (endx, endy))
         except Exception as excep:
             print(excep)
         print("Shortest distance: ", shortest_distance)
@@ -130,10 +128,9 @@ class TextUI:
         scenario = self._select_scenario()
         print("--------------------")
         self.image.read("data/" + scenario + ".map")
-        graph = Graph(self.image)
         try:
             number_of_cases, total_time = self.service.run_benchmark(
-                scenario, algorithm, graph)
+                self.image, algorithm)
         except Exception as excep:
             print(excep)
         print("Number of cases: ", number_of_cases)

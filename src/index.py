@@ -1,5 +1,4 @@
 from map_image import MapImage
-from graph import Graph
 from input_parser import InputParser
 from textui import TextUI
 from service import Service
@@ -24,16 +23,15 @@ def main():
         txt_ui.start()
     else:
         image.read("data/" + image_map + ".map")
-        graph = Graph(image)
         algorithm = service.select_algorithm(algorithm_name)
         if ctype == "benchmark":
             number_of_cases, total_time = service.run_benchmark(
-                image, algorithm, graph)
+                image, algorithm)
             print("Number of cases: ", number_of_cases)
             print("Calculation time: ", total_time)
         else:
             shortest_distance, el_time, visited = service.calculate_distance(
-                graph, algorithm, image, start, end)
+                algorithm, image, start, end)
             print("Shortest distance: ", shortest_distance)
             print("Time used: ", el_time)
             print("Number of visited nodes/jump points: ", visited)
