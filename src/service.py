@@ -36,7 +36,7 @@ class Service:
         graph = Graph(image)
         shortest_distance, route, visited, el_time = algorithm.calculate_distance_and_time(
             graph, start, end)
-        return shortest_distance, route, el_time, len(visited)
+        return shortest_distance, route, el_time, visited
 
     def show_image(self, image, algorithm, route, visited):
         """add points to image and display to screen.

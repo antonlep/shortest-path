@@ -46,7 +46,7 @@ class TestService(unittest.TestCase):
             algorithm, image, start, end)
         self.assertEqual(dist, 1)
         self.assertEqual(tot_time, 4)
-        self.assertEqual(visited, 2)
+        self.assertEqual(visited, [1, 2])
 
     def test_algorithm_a_star(self):
         service = Service()

@@ -42,7 +42,7 @@ def main():
                 algorithm, image, start, end)
             print("Shortest distance: ", shortest_distance)
             print("Time used: ", el_time)
-            print("Number of visited nodes/jump points: ", visited)
+            print("Number of visited nodes/jump points: ", len(visited))
             service.show_image(image, algorithm, route, visited)
 
 

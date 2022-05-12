@@ -75,7 +75,7 @@ class TextUI:
                 algorithm, self.image, (startx, starty), (endx, endy))
             print("Shortest distance: ", shortest_distance)
             print("Time used: ", el_time)
-            print("Number of visited nodes/jump points: ", visited)
+            print("Number of visited nodes/jump points: ", len(visited))
             self.service.show_image(self.image, algorithm, route, visited)
         except Exception as excep:
             print(excep)
