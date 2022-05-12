@@ -39,7 +39,7 @@ class Service:
         return shortest_distance, route, el_time, visited
 
     def show_image(self, image, algorithm, route, visited):
-        """add points to image and display to screen.
+        """Add points to image and display to screen.
 
         Args:
             image: MapImage object

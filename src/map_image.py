@@ -1,3 +1,4 @@
+import sys
 from PIL import Image
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
@@ -117,6 +118,7 @@ class MapImage:
     def show_image(self, algorithm):
         """Display image in separate window.
         """
+        sys.stdout.flush()
         img = mpimg.imread("data/" + self.name +
                            f"_{type(algorithm).__name__}.png")
         _ = plt.imshow(img)
