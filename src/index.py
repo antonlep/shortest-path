@@ -38,11 +38,12 @@ def main():
 
         # Calculate shortest distance for one case.
         else:
-            shortest_distance, el_time, visited = service.calculate_distance(
+            shortest_distance, route, el_time, visited = service.calculate_distance(
                 algorithm, image, start, end)
             print("Shortest distance: ", shortest_distance)
             print("Time used: ", el_time)
             print("Number of visited nodes/jump points: ", visited)
+            service.show_image(image, algorithm, route, visited)
 
 
 if __name__ == "__main__":

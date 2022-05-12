@@ -36,9 +36,19 @@ class Service:
         graph = Graph(image)
         shortest_distance, route, visited, el_time = algorithm.calculate_distance_and_time(
             graph, start, end)
+        return shortest_distance, route, el_time, len(visited)
+
+    def show_image(self, image, algorithm, route, visited):
+        """add points to image and display to screen.
+
+        Args:
+            image: MapImage object
+            algorithm: Algorithm object
+            route: list of shortest path
+            visited: list of visited nodes
+        """
         image.save_images(algorithm, route, visited)
         image.show_image(algorithm)
-        return shortest_distance, el_time, len(visited)
 
     def select_algorithm(self, algorithm_name):
         """Creates Algorithm object according to input string.

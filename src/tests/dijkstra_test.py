@@ -43,7 +43,7 @@ class TestDijkstra(unittest.TestCase):
         distance, route, visited = dijkstra.calculate_distance(
             self.empty_graph, start, end)
         self.assertEqual(distance, -1)
-        self.assertEqual(route, [])
+        self.assertEqual(route, [end, start])
         self.assertEqual(visited, [])
 
     def test_calculate_distance_case1(self):
@@ -88,7 +88,7 @@ class TestDijkstra(unittest.TestCase):
         distance, route, visited = dijkstra.calculate_distance(
             self.graph1, start, end)
         self.assertEqual(distance, -1)
-        self.assertEqual(route, [])
+        self.assertEqual(route, [end, start])
         self.assertEqual(visited, [])
 
     def test_end_not_in_graph(self):
@@ -98,5 +98,5 @@ class TestDijkstra(unittest.TestCase):
         distance, route, visited = dijkstra.calculate_distance(
             self.graph1, start, end)
         self.assertEqual(distance, -1)
-        self.assertEqual(route, [])
+        self.assertEqual(route, [end, start])
         self.assertEqual(visited, [])

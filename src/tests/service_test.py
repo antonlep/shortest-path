@@ -42,7 +42,7 @@ class TestService(unittest.TestCase):
         service = Service()
         start = (0, 0)
         end = (10, 10)
-        dist, tot_time, visited = service.calculate_distance(
+        dist, route, tot_time, visited = service.calculate_distance(
             algorithm, image, start, end)
         self.assertEqual(dist, 1)
         self.assertEqual(tot_time, 4)

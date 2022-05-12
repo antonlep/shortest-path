@@ -71,11 +71,12 @@ class TextUI:
         print("--------------------")
         self.image.read("data/" + s_map + ".map")
         try:
-            shortest_distance, el_time, visited = self.service.calculate_distance(
+            shortest_distance, route, el_time, visited = self.service.calculate_distance(
                 algorithm, self.image, (startx, starty), (endx, endy))
             print("Shortest distance: ", shortest_distance)
             print("Time used: ", el_time)
             print("Number of visited nodes/jump points: ", visited)
+            self.service.show_image(self.image, algorithm, route, visited)
         except Exception as excep:
             print(excep)
         print("--------------------")
