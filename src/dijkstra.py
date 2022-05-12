@@ -23,7 +23,7 @@ class Dijkstra(Algorithm):
             graph, start, end)
 
         if not distance:
-            return -1, [], []
+            return -1, [end, start], []
 
         # Loop until there are no unvisited nodes to process.
         # Nodes are ordered according to distance from start.
@@ -46,7 +46,7 @@ class Dijkstra(Algorithm):
 
         # If list has been gone through and no end point found, return -1.
         if distance[end] == self.inf:
-            return -1, [], []
+            return -1, [end, start], []
 
         # Build lists for shortest route and visited nodes and return those.
         route = self._calculate_route(previous, start, end)
