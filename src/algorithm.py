@@ -8,7 +8,7 @@ class Algorithm:
     def __init__(self):
         self.inf = 1e99
 
-    def initialize_data_structures(self, graph, start, end):
+    def _initialize_data_structures(self, graph, start, end):
 
         # Create PriorityQueue for storing open (unvisited) nodes
         open_list = queue.PriorityQueue()
@@ -45,7 +45,7 @@ class Algorithm:
 
         return distance, previous, closed, open_list, first_node
 
-    def take_next_node(self, open_list, closed, end):
+    def _take_next_node(self, open_list, closed, end):
 
         # Take next node from queue and check if it is end node or already processed.
         _, x = open_list.get()
@@ -57,7 +57,7 @@ class Algorithm:
 
         return x, closed, False, False
 
-    def go_through_node_neighbors_and_update(
+    def _go_through_node_neighbors_and_update(
             self, graph, distance, previous, x, end, open_list):
 
         # Go through neighbor nodes. If distance through the current node to neighbor node
@@ -72,7 +72,7 @@ class Algorithm:
                 open_list.put((f_cost, neighbor))
         return distance, previous, open_list
 
-    def go_through_jump_points_and_update(
+    def _go_through_jump_points_and_update(
             self, graph, distance, previous, x, start, end, open_list, first_node):
 
         # Go through all directions from current node and check if jump points exist.
@@ -87,14 +87,14 @@ class Algorithm:
             natural_neighbors = [s[0] for s in neighbors]
             first_node = False
         else:
-            natural_neighbors = self.prune(
+            natural_neighbors = self._prune(
                 graph, previous[x], x)
 
         # Go through neighbors and check if jump point exists in each direction.
         # If jump point is found, put it to the list.
         for neighbor in natural_neighbors:
             direction = (neighbor[0] - x[0], neighbor[1] - x[1])
-            n = self.jump(graph, x, direction, start, end)
+            n = self._jump(graph, x, direction, start, end)
             if n is not None:
                 successors.append(n)
 
@@ -112,7 +112,7 @@ class Algorithm:
 
         return distance, previous, open_list, first_node
 
-    def calculate_route(self, previous, start, end):
+    def _calculate_route(self, previous, start, end):
 
         # Calculate route from start to end using previous node dictionary.
         route = [end]
@@ -135,7 +135,7 @@ class Algorithm:
             u = previous[u]
         return route
 
-    def calculate_visited(self, ready):
+    def _calculate_visited(self, ready):
 
         # Transform visited node dictionary to a list of visited nodes.
         visited = []
@@ -193,8 +193,8 @@ class Algorithm:
     def heuristic(self, node, end):
         return 0
 
-    def prune(self, graph, parent, node):
+    def _prune(self, graph, parent, node):
         return graph, parent, node
 
-    def jump(self, graph, node, direction, start, goal):
+    def _jump(self, graph, node, direction, start, goal):
         return graph, node, direction, start, goal

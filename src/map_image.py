@@ -16,7 +16,6 @@ class MapImage:
         start_color: Start point color in RGB format
         end_color: End point color in RGB format
         scale_factor: For scaling up output image
-        image_map: Map name to import
     """
 
     def __init__(self, fg_color, bg_color, visited_color,

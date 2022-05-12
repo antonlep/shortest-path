@@ -19,7 +19,7 @@ class Dijkstra(Algorithm):
         """
 
         # Create initial data structures
-        distance, previous, closed, open_list, _ = self.initialize_data_structures(
+        distance, previous, closed, open_list, _ = self._initialize_data_structures(
             graph, start, end)
 
         if not distance:
@@ -32,7 +32,7 @@ class Dijkstra(Algorithm):
             # Take next node from queue.
             # If it is end node, break from the loop.
             # If it is already processed, skip rest of the loop and take next node.
-            x, closed, end_node, processed_node = self.take_next_node(
+            x, closed, end_node, processed_node = self._take_next_node(
                 open_list, closed, end)
             if end_node:
                 break
@@ -41,7 +41,7 @@ class Dijkstra(Algorithm):
 
             # Go through node neighbors, calculate distances for them
             # and update data structures accordingly.
-            distance, previous, open_list = self.go_through_node_neighbors_and_update(
+            distance, previous, open_list = self._go_through_node_neighbors_and_update(
                 graph, distance, previous, x, end, open_list)
 
         # If list has been gone through and no end point found, return -1.
@@ -49,8 +49,8 @@ class Dijkstra(Algorithm):
             return -1, [], []
 
         # Build lists for shortest route and visited nodes and return those.
-        route = self.calculate_route(previous, start, end)
-        visited = self.calculate_visited(closed)
+        route = self._calculate_route(previous, start, end)
+        visited = self._calculate_visited(closed)
         return distance[end], route, visited
 
     def heuristic(self, node, end):

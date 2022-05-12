@@ -14,6 +14,9 @@ class Graph:
     def create_graph(self, image):
         """Converts image file to graph.
 
+        Args:
+            image: MapImage object to be converted
+
         Returns:
             Graph as 2D list which includes neighboring nodes and their cost
         """

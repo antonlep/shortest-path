@@ -9,13 +9,12 @@ class Service:
     """
 
     def run_benchmark(self, image, algorithm):
-        """Calculates benchmark case with several calculation points. 
+        """Calculates benchmark case with several calculation points.
             Prints results to command line and to .csv file.
 
         Args:
-            image: MapImage object
+            image: MapImage object of case to be calculated
             algorithm: Calculation algorithm as Algorithm object
-            graph: Case to be calculated as Graph object
         """
         graph = Graph(image)
         image_map = image.name
@@ -29,9 +28,8 @@ class Service:
         """Calculates shortest path in a graph between two points.
 
         Args:
-            graph: Case to be calculated as Graph object
             algorithm: Calculation algorithm as Algorithm object
-            image: MapImage object
+            image: MapImage object of case to be calculated
             start: Tuple with x, y coordinates of start point
             end: Tuple with x, y coordinates of start point
         """

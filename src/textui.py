@@ -73,11 +73,11 @@ class TextUI:
         try:
             shortest_distance, el_time, visited = self.service.calculate_distance(
                 algorithm, self.image, (startx, starty), (endx, endy))
+            print("Shortest distance: ", shortest_distance)
+            print("Time used: ", el_time)
+            print("Number of visited nodes/jump points: ", visited)
         except Exception as excep:
             print(excep)
-        print("Shortest distance: ", shortest_distance)
-        print("Time used: ", el_time)
-        print("Number of visited nodes/jump points: ", visited)
         print("--------------------")
 
     def _select_algorithm(self):
@@ -131,13 +131,15 @@ class TextUI:
         try:
             number_of_cases, total_time = self.service.run_benchmark(
                 self.image, algorithm)
+            print("Number of cases: ", number_of_cases)
+            print("Calculation time: ", total_time)
         except Exception as excep:
             print(excep)
-        print("Number of cases: ", number_of_cases)
-        print("Calculation time: ", total_time)
         print("--------------------")
 
     def _read_files(self, ending):
+
+        # Returns file names in data/ dictionary with specified ending.
         files = [f for f in listdir("data/") if isfile(join("data/", f))]
         files = {f.split(".")[0] for f in files if f.endswith(ending)}
         d_files = {str(i): f for i, f in enumerate(files)}

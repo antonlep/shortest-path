@@ -47,7 +47,7 @@ class TestAlgorithm(unittest.TestCase):
         start = (0, 0)
         end = (1, 1)
         previous = {(1, 1): (3, 3), (3, 3): (0, 0)}
-        route = dist.calculate_route(previous, start, end)
+        route = dist._calculate_route(previous, start, end)
         self.assertEqual(
             route, [(1, 1), (2, 2), (3, 3), (2, 2), (1, 1), (0, 0)])
 

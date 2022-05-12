@@ -9,7 +9,7 @@ class InputParser:
         """Parses command line arguments.
 
         Returns:
-            Tuple of benchmark (string), algorithm name (string),
+            Tuple of calculation type (string), algorithm name (string),
             image file name (string), start point (tuple) and end point (tuple)
         """
         ctype = None
