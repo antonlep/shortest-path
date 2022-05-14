@@ -1,6 +1,6 @@
 # Test document
 ## Unit testing
-Each class is separately tested with Python unittest framework.
+Each class is separately tested with Python unittest framework. In addition there is TestBenchmark class for testing distance calculation in a large map.
 ![coverage](https://user-images.githubusercontent.com/76871257/167906924-03763951-968b-4b5f-9561-6fc8cac6c99c.PNG)
 
 
@@ -20,6 +20,8 @@ A few cases with different input arguments are tested.
 Image import, point and route addition and image saving are tested with two maps.
 ### Service
 Class methods are tested with help of mock classes.
+### TestBenchmark
+Distance is calculated in a large map with random start and end locations. In total 20 cases are calculated. A* and JPS distance is compared to Dijkstra, which is used as reference case.
 
 ## Route testing with small map
 Four reference test cases have been made with four different map files to validate shortest path and to make sure that visited nodes are correct. In case of JPS algorithm, jump points are examined instead of visited nodes. Color codes: wall = white, unvisited floor = blue, visited floor = red, shortest route = black, start point = yellow, end point = green. 
