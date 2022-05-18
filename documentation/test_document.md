@@ -1,6 +1,7 @@
 # Test document
 ## Unit testing
 Each class is separately tested with Python unittest framework. In addition there is TestBenchmark class for testing distance calculation in a large map.
+
 ![coverage](https://user-images.githubusercontent.com/76871257/167906924-03763951-968b-4b5f-9561-6fc8cac6c99c.PNG)
 
 
